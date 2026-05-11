@@ -1,0 +1,1954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andri Gilang Apkara | Portfolio</title>
+  <meta name="description" content="Portfolio of Andri Gilang Apkara — Physics undergraduate focused on instrumentation, Embedded System, IoT, Medical Physics dosimetry research." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #101522;
+      --muted: #5c667a;
+      --line: #e8ecf3;
+      --panel: #f7f9fc;
+      --ink: #17233d;
+      --blue: #163866;
+      --blue-2: #0b5cad;
+      --soft-blue: #eaf3ff;
+      --shadow: 0 22px 70px rgba(20, 37, 63, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .page {
+      min-height: 100vh;
+      overflow: hidden;
+      position: relative;
+      background:
+        radial-gradient(circle at 12% 12%, rgba(11, 92, 173, 0.08), transparent 28%),
+        radial-gradient(circle at 88% 72%, rgba(22, 56, 102, 0.08), transparent 24%),
+        #fff;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.86);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(232, 236, 243, 0.9);
+    }
+
+    .nav-inner {
+      min-height: 74px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .nav-left, .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .nav-left a {
+      position: relative;
+      padding: 6px 0;
+    }
+
+    .nav-left a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 99px;
+      background: var(--blue);
+      transition: width 0.25s ease;
+    }
+
+    .nav-left a:hover::after { width: 100%; }
+
+    .brand {
+      font-size: 0.98rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      text-align: center;
+    }
+
+    .nav-right { justify-content: flex-end; }
+
+    .icon-link {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: transparent;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .icon-link:hover {
+      transform: translateY(-2px);
+      background: var(--panel);
+      border-color: var(--line);
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 74px);
+      display: grid;
+      grid-template-columns: minmax(300px, 0.95fr) minmax(360px, 1.05fr);
+      gap: 52px;
+      align-items: center;
+      padding: 54px 0 70px;
+    }
+
+    .profile-card {
+      position: relative;
+      border-radius: 42px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(232, 236, 243, 0.95);
+      background: var(--panel);
+      width: min(100%, 520px);
+      min-height: 560px;
+      margin: 0 auto;
+      isolation: isolate;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(145deg, rgba(22, 56, 102, 0.08), transparent 45%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .profile-card img {
+      width: 100%;
+      height: 100%;
+      min-height: 560px;
+      object-fit: cover;
+    }
+
+    .profile-tag {
+      position: absolute;
+      z-index: 2;
+      left: 24px;
+      right: 24px;
+      bottom: 22px;
+      display: grid;
+      gap: 6px;
+      padding: 18px 20px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 16px 48px rgba(20, 37, 63, 0.14);
+    }
+
+    .profile-tag strong {
+      font-size: 0.95rem;
+      letter-spacing: -0.02em;
+    }
+
+    .profile-tag span {
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 620px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 10px 10px;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--soft-blue);
+      color: var(--blue);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 99px;
+      background: var(--blue-2);
+      box-shadow: 0 0 0 6px rgba(11, 92, 173, 0.12);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1.02;
+      letter-spacing: -0.075em;
+      font-weight: 900;
+      color: var(--blue);
+    }
+
+    .hero-copy {
+      max-width: 620px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-weight: 550;
+      font-size: clamp(0.98rem, 1.35vw, 1.06rem);
+    }
+
+    .hero-copy b { color: var(--text); }
+
+    .cta-stack {
+      width: min(360px, 100%);
+      margin: 30px auto 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 46px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      min-height: 58px;
+      background: var(--blue);
+      color: #fff;
+      font-size: 1rem;
+      border-radius: 15px;
+      box-shadow: 0 18px 40px rgba(22, 56, 102, 0.22);
+    }
+
+    .btn-primary:hover { background: #0f2c50; }
+
+    .mini-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .btn-small {
+      min-height: 40px;
+      font-size: 0.72rem;
+      background: var(--ink);
+      color: #fff;
+      border-radius: 12px;
+    }
+
+    .drawing {
+      position: absolute;
+      color: rgba(23, 35, 61, 0.22);
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.6;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .draw-pv { width: 132px; top: 30px; right: 28px; transform: rotate(-8deg); }
+    .draw-wave { width: 136px; top: 52%; left: -12px; }
+    .draw-ct { width: 118px; bottom: 52px; right: 18px; transform: rotate(7deg); }
+    .draw-heart { width: 86px; top: 76px; left: 8px; transform: rotate(-4deg); }
+
+    .section {
+      position: relative;
+      padding: 90px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 0.72fr 1fr;
+      gap: 34px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .kicker {
+      color: var(--blue-2);
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2.2rem, 4vw, 4.1rem);
+      line-height: 1;
+      letter-spacing: -0.075em;
+      font-weight: 900;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      font-weight: 550;
+    }
+
+    .click-note {
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--blue);
+      background: #fff;
+      font-weight: 800;
+    }
+
+    .project-rows { display: grid; gap: 20px; }
+    .project-row { display: grid; gap: 20px; }
+    .project-row.top { grid-template-columns: repeat(2, 1fr); }
+    .project-row.bottom { grid-template-columns: repeat(3, 1fr); }
+
+    .project-card {
+      position: relative;
+      display: flex;
+      min-height: 100%;
+      flex-direction: column;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 12px 44px rgba(20, 37, 63, 0.08);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 70px rgba(20, 37, 63, 0.14);
+      border-color: rgba(22, 56, 102, 0.28);
+    }
+
+    .project-media {
+      aspect-ratio: 1.35 / 1;
+      overflow: hidden;
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .project-card:hover .project-media img { transform: scale(1.045); }
+
+    .project-body {
+      padding: 22px;
+      display: flex;
+      min-height: 250px;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .project-body h3 {
+      margin: 0;
+      font-size: 1.12rem;
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+    }
+
+    .project-body p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+      font-weight: 520;
+    }
+
+    .project-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+
+    .project-more {
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--blue);
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: auto;
+    }
+
+    .chip {
+      padding: 6px 9px;
+      border-radius: 999px;
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: var(--soft-blue);
+      border: 1px solid rgba(11, 92, 173, 0.1);
+    }
+
+    .coming-card .project-media,
+    .coming-card .project-body {
+      filter: blur(1.8px);
+      transform: scale(1.01);
+      pointer-events: none;
+      user-select: none;
+      transition: filter 0.28s ease, transform 0.28s ease;
+    }
+
+    .coming-card:hover .project-media,
+    .coming-card:hover .project-body,
+    .coming-card:focus .project-media,
+    .coming-card:focus .project-body,
+    .coming-card:focus-within .project-media,
+    .coming-card:focus-within .project-body {
+      filter: blur(0);
+      transform: scale(1);
+    }
+
+    .coming-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(2px);
+      z-index: 2;
+      transition: opacity 0.28s ease, backdrop-filter 0.28s ease, background 0.28s ease;
+    }
+
+    .coming-card:hover::after,
+    .coming-card:focus::after,
+    .coming-card:focus-within::after {
+      opacity: 0;
+      backdrop-filter: blur(0);
+      background: rgba(255, 255, 255, 0);
+    }
+
+    .coming-badge {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      pointer-events: none;
+      transition: opacity 0.28s ease, transform 0.28s ease;
+    }
+
+    .coming-card:hover .coming-badge,
+    .coming-card:focus .coming-badge,
+    .coming-card:focus-within .coming-badge {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+
+    .coming-badge span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 190px;
+      min-height: 54px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: rgba(22, 56, 102, 0.95);
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      box-shadow: 0 16px 34px rgba(22, 56, 102, 0.24);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .right-column { display: grid; gap: 22px; }
+
+    .about-card {
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px;
+      background: linear-gradient(180deg, #fff, #f9fbff);
+      box-shadow: 0 12px 44px rgba(20, 37, 63, 0.06);
+    }
+
+    .about-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+      letter-spacing: -0.04em;
+    }
+
+    .cv-card {
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .cv-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 54px rgba(20, 37, 63, 0.11);
+      border-color: rgba(22, 56, 102, 0.26);
+    }
+
+    .cv-real-preview {
+      margin-top: 16px;
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.65);
+    }
+
+    .cv-preview-toolbar {
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      background: #f7fafe;
+      color: var(--blue);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .cv-inline-frame {
+      width: 100%;
+      height: 540px;
+      border: 0;
+      background: #fff;
+    }
+
+    .cv-button { margin-top: 18px; }
+
+    .timeline,
+    .org-list { display: grid; gap: 18px; }
+
+    .time-item,
+    .org-item {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 16px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .time-item:last-child,
+    .org-item:last-child { border-bottom: 0; padding-bottom: 0; }
+
+    .year,
+    .org-year {
+      font-weight: 900;
+      color: var(--blue);
+      font-size: 0.86rem;
+    }
+
+    .time-item strong,
+    .org-item strong {
+      display: block;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+    }
+
+    .time-item span,
+    .org-item span {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 520;
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 36px;
+      padding: 42px;
+      background: var(--ink);
+      color: #fff;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .contact-panel::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      right: -130px;
+      bottom: -170px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .contact-panel h2 { color: #fff; }
+    .contact-panel p {
+      margin: 14px 0 0;
+      max-width: 680px;
+      color: rgba(255,255,255,0.76);
+      font-weight: 520;
+    }
+
+    .contact-actions {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      gap: 10px;
+      min-width: 230px;
+    }
+
+    .contact-actions .btn {
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .footer {
+      padding: 28px 0 42px;
+      color: var(--muted);
+      font-size: 0.86rem;
+      text-align: center;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(13, 20, 34, 0.58);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      z-index: 100;
+    }
+
+    .modal.show { display: flex; }
+
+    .modal-box {
+      width: min(1080px, 100%);
+      max-height: min(88vh, 900px);
+      overflow: auto;
+      border-radius: 30px;
+      background: #fff;
+      box-shadow: 0 30px 100px rgba(10, 18, 34, 0.28);
+      border: 1px solid var(--line);
+      position: relative;
+    }
+
+    .modal-close {
+      position: sticky;
+      top: 16px;
+      margin-left: auto;
+      margin-right: 16px;
+      margin-top: 16px;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem;
+      font-weight: 900;
+      cursor: pointer;
+      z-index: 3;
+    }
+
+    .modal-content {
+      padding: 0 28px 28px;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 28px;
+    }
+
+    .modal-gallery {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+    }
+
+    .modal-hero {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      min-height: 300px;
+    }
+
+    .modal-hero img {
+      width: 100%;
+      height: 100%;
+      min-height: 300px;
+      object-fit: cover;
+    }
+
+    .thumb-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .thumb {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      aspect-ratio: 1.2 / 1;
+    }
+
+    .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .modal-box.vertical-mode .modal-content {
+      grid-template-columns: minmax(280px, 420px) 1fr;
+      align-items: start;
+    }
+
+    .modal-box.vertical-mode .modal-gallery { display: block; }
+
+    .modal-box.vertical-mode .modal-hero {
+      aspect-ratio: 9 / 16;
+      min-height: auto;
+      max-height: 78vh;
+      width: min(420px, 100%);
+      margin: 0 auto;
+    }
+
+    .modal-box.vertical-mode .modal-hero img {
+      min-height: 0;
+      object-fit: cover;
+    }
+
+    .modal-box.vertical-mode .thumb-grid { display: none; }
+
+    .modal-box.coming-soon-mode .modal-hero img {
+      filter: blur(2px);
+      transform: scale(1.02);
+      transition: filter 0.28s ease, transform 0.28s ease;
+    }
+
+    .modal-box.coming-soon-mode .modal-hero:hover img {
+      filter: blur(0);
+      transform: scale(1);
+    }
+
+    .modal-box.coming-soon-mode .modal-hero:hover .modal-soon-overlay {
+      background: rgba(255,255,255,0.04);
+      backdrop-filter: blur(0);
+    }
+
+    .modal-box.coming-soon-mode .thumb-grid,
+    .modal-box.slider-mode .thumb-grid { display: none; }
+
+    .modal-box.coming-soon-mode .detail-block,
+    .modal-box.coming-soon-mode #modalChips,
+    .modal-box.coming-soon-mode #modalDesc { display: none; }
+
+    .modal-soon-overlay {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      background: rgba(255,255,255,0.22);
+      backdrop-filter: blur(3px);
+      text-align: center;
+      padding: 20px;
+    }
+
+    .modal-soon-overlay span {
+      display: inline-flex;
+      min-width: 220px;
+      min-height: 60px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      background: rgba(22, 56, 102, 0.95);
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      box-shadow: 0 16px 34px rgba(22, 56, 102, 0.24);
+    }
+
+    .modal-box.coming-soon-mode .modal-soon-overlay { display: flex; }
+
+    .soon-message {
+      display: none;
+      margin-top: 16px;
+      padding: 20px 22px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #fff, #f9fbff);
+      color: var(--muted);
+    }
+
+    .soon-message strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--blue);
+      font-size: 1rem;
+    }
+
+    .modal-box.coming-soon-mode .soon-message { display: block; }
+
+    .carousel-controls {
+      position: absolute;
+      inset: auto 14px 14px 14px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    .modal-box.slider-mode .carousel-controls { display: flex; }
+
+    .carousel-btn {
+      width: 46px;
+      height: 46px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.92);
+      color: var(--blue);
+      font-size: 1.35rem;
+      font-weight: 900;
+      box-shadow: 0 12px 24px rgba(20, 37, 63, 0.18);
+      cursor: pointer;
+      pointer-events: auto;
+    }
+
+    .carousel-indicator {
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(22, 56, 102, 0.92);
+      color: #fff;
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      pointer-events: auto;
+    }
+
+    .modal-info { padding-top: 8px; }
+
+    .modal-info .project-kicker {
+      color: var(--blue-2);
+      font-size: 0.76rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .modal-info h3 {
+      margin: 0;
+      font-size: clamp(2rem, 3vw, 3.1rem);
+      line-height: 1;
+      letter-spacing: -0.07em;
+    }
+
+    .modal-info p {
+      color: var(--muted);
+      margin: 16px 0 0;
+    }
+
+    .detail-block {
+      margin-top: 18px;
+      padding: 18px 20px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, #fff, #f9fbff);
+    }
+
+    .detail-block h4 {
+      margin: 0 0 10px;
+      font-size: 0.95rem;
+      letter-spacing: -0.03em;
+    }
+
+    .detail-block ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .detail-block li + li { margin-top: 6px; }
+
+
+
+    .achievement-gallery {
+      display: none;
+      margin-top: 18px;
+    }
+
+    .achievement-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(240px, 1fr));
+      gap: 18px;
+    }
+
+    .achievement-item {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #fff, #f9fbff);
+      box-shadow: 0 8px 24px rgba(20, 37, 63, 0.06);
+    }
+
+    .achievement-item img {
+      width: 100%;
+      aspect-ratio: 1.414 / 1;
+      object-fit: contain;
+      padding: 8px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .achievement-item-body {
+      padding: 14px 14px 16px;
+    }
+
+    .achievement-item-body h5 {
+      margin: 0;
+      font-size: 0.96rem;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+    }
+
+    .achievement-item-body p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .achievement-link {
+      display: inline-flex;
+      margin-top: 10px;
+      color: var(--blue);
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .modal-box.achievements-mode {
+      width: min(1320px, calc(100vw - 48px));
+    }
+
+    .modal-box.achievements-mode .modal-content {
+      grid-template-columns: 1fr;
+    }
+
+    .modal-box.achievements-mode .modal-gallery,
+    .modal-box.achievements-mode .thumb-grid,
+    .modal-box.achievements-mode .detail-block {
+      display: none;
+    }
+
+    .modal-box.achievements-mode .modal-info {
+      padding-top: 0;
+    }
+
+    .modal-box.achievements-mode .achievement-gallery {
+      display: block;
+    }
+
+    .cv-modal-box {
+      width: min(1180px, 100%);
+      height: min(92vh, 980px);
+      border-radius: 30px;
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: 0 30px 100px rgba(10, 18, 34, 0.28);
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .cv-modal-head {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .cv-modal-head strong {
+      color: var(--blue);
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .cv-frame {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #fff;
+    }
+
+    @media (max-width: 1100px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding-top: 40px;
+      }
+
+      .profile-card {
+        width: min(520px, 100%);
+        min-height: 440px;
+      }
+
+      .profile-card img { min-height: 440px; }
+
+      .section-head,
+      .about-grid,
+      .modal-content,
+      .modal-box.vertical-mode .modal-content,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .project-row.top,
+      .project-row.bottom { grid-template-columns: repeat(2, 1fr); }
+
+      .achievement-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 760px) {
+      .container { width: min(100% - 28px, 1160px); }
+
+      .nav-inner {
+        min-height: auto;
+        padding: 14px 0;
+        grid-template-columns: 1fr;
+      }
+
+      .brand { order: -1; }
+      .nav-left, .nav-right { justify-content: center; }
+      .nav-right { display: none; }
+
+      .hero { padding: 32px 0 54px; }
+      .profile-card, .profile-card img { min-height: 350px; }
+      .hero-content { padding: 0; }
+      h1 { font-size: clamp(2rem, 8vw, 3.2rem); }
+
+      .project-row.top,
+      .project-row.bottom { grid-template-columns: 1fr; }
+
+      .project-body { min-height: auto; }
+
+      .time-item,
+      .org-item { grid-template-columns: 1fr; gap: 4px; }
+
+      .contact-panel {
+        padding: 28px;
+        border-radius: 26px;
+      }
+
+      .drawing { opacity: 0.34; }
+      .draw-pv { top: 8px; right: -2px; width: 104px; }
+      .draw-wave { left: -10px; top: 62%; width: 110px; }
+      .draw-ct { right: 0; bottom: 26px; width: 92px; }
+      .draw-heart { left: 0; top: 62px; width: 68px; }
+
+      .modal { padding: 14px; }
+      .modal-content { padding: 0 18px 18px; }
+      .modal-box.vertical-mode .modal-hero { max-height: none; width: min(360px, 100%); }
+      .cv-inline-frame { height: 420px; }
+  
+
+    .achievement-gallery {
+      display: none;
+      margin-top: 18px;
+    }
+
+    .achievement-gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .achievement-item {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #fff, #f9fbff);
+      box-shadow: 0 8px 24px rgba(20, 37, 63, 0.06);
+    }
+
+    .achievement-item img {
+      width: 100%;
+      aspect-ratio: 1.414 / 1;
+      object-fit: contain;
+      padding: 8px;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .achievement-item-body {
+      padding: 14px 14px 16px;
+    }
+
+    .achievement-item-body h5 {
+      margin: 0;
+      font-size: 0.96rem;
+      line-height: 1.25;
+      letter-spacing: -0.03em;
+    }
+
+    .achievement-item-body p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.55;
+    }
+
+    .achievement-link {
+      display: inline-flex;
+      margin-top: 10px;
+      color: var(--blue);
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .modal-box.achievements-mode .thumb-grid,
+    .modal-box.achievements-mode .detail-block {
+      display: none;
+    }
+
+    .modal-box.achievements-mode .achievement-gallery {
+      display: block;
+    }
+
+    .cv-modal-box { height: 92vh; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page" id="home">
+    <header class="navbar">
+      <div class="container nav-inner">
+        <nav class="nav-left" aria-label="Main navigation">
+          <a href="#home">Home</a>
+          <a href="assets/resume/andri-gilang-apkara-resume.pdf" target="_blank">Resume</a>
+          <a href="#projects">Projects</a>
+        </nav>
+
+        <a class="brand" href="#home">Andri Gilang Apkara's Portfolio</a>
+
+        <nav class="nav-right" aria-label="Social navigation">
+          <a class="icon-link" href="https://www.linkedin.com/in/andrigilangapkara" target="_blank" aria-label="LinkedIn">
+            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5S1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.36 8.24h4.28V23H.36V8.24zM8.16 8.24h4.1v2.02h.06c.57-1.08 1.96-2.22 4.04-2.22c4.32 0 5.12 2.84 5.12 6.54V23h-4.28v-7.46c0-1.78-.03-4.07-2.48-4.07c-2.48 0-2.86 1.94-2.86 3.94V23H8.16V8.24z"/></svg>
+          </a>
+          <a class="icon-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=andrigilangafkara@gmail.com" target="_blank" aria-label="Email">
+            <svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm-.4 4.25l-7.07 4.42a1 1 0 0 1-1.06 0L4.4 8.25A1 1 0 0 1 5.46 6.55L12 10.64l6.54-4.09a1 1 0 0 1 1.06 1.7Z"/></svg>
+          </a>
+          <a class="icon-link" href="#projects" aria-label="Projects">
+            <svg width="19" height="19" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 5a2 2 0 0 1 2-2h4.2a2 2 0 0 1 1.6.8L12.4 6H19a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5Z"/></svg>
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="container hero" aria-labelledby="intro-title">
+        <div class="profile-card">
+          <img src="assets/profile.svg" alt="Portrait placeholder for Andri Gilang Apkara" />
+          <div class="profile-tag">
+            <strong>Physics • Instrumentation • Medical Physics</strong>
+            <span>Focused on Instrumentation, IoT systems, Embedded System, Medical Physics, Dosimeter and applied research projects.</span>
+          </div>
+        </div>
+
+        <div class="hero-content">
+          <svg class="drawing draw-pv" viewBox="0 0 160 120" aria-hidden="true">
+            <rect x="34" y="28" width="84" height="48" rx="3"/><path d="M48 28v48M62 28v48M76 28v48M90 28v48M104 28v48M34 44h84M34 60h84"/><path d="M76 76v24M52 100h48M60 100l-18 12M92 100l18 12"/><circle cx="126" cy="28" r="10"/><path d="M126 6v10M126 40v10M104 28h10M138 28h10M111 13l7 7M134 36l7 7M141 13l-7 7M118 36l-7 7"/>
+          </svg>
+          <svg class="drawing draw-wave" viewBox="0 0 170 100" aria-hidden="true">
+            <path d="M6 50h22c8 0 7-30 16-30s8 60 18 60s9-60 18-60s9 60 18 60s9-60 18-60s8 30 16 30h32"/><path d="M18 14v72M18 86h132"/><path d="M32 22h-8M32 50h-8M32 78h-8M52 90v-8M82 90v-8M112 90v-8M142 90v-8"/>
+          </svg>
+          <svg class="drawing draw-ct" viewBox="0 0 130 130" aria-hidden="true">
+            <rect x="20" y="26" width="84" height="72" rx="14"/><circle cx="62" cy="62" r="27"/><circle cx="62" cy="62" r="14"/><path d="M104 48h12v32h-12M32 98v18h60V98M42 116h40"/><path d="M22 42H10v42h12"/>
+          </svg>
+          <svg class="drawing draw-heart" viewBox="0 0 120 120" aria-hidden="true">
+            <path d="M60 100s-38-22-38-50c0-12 10-22 22-22c8 0 13 4 16 9c3-5 8-9 16-9c12 0 22 10 22 22c0 28-38 50-38 50Z"/>
+            <path d="M33 62h16l7-16l10 30l8-18h13"/>
+          </svg>
+
+          <div class="eyebrow">Andri Gilang Apkara</div>
+          <h1 id="intro-title">Medical Physics &amp;<br>Instrumentation Student.</h1>
+          <p class="hero-copy">
+            I build practical engineering projects around <b>medical room IoT monitoring</b>, <b>electronics prototypes</b>, <b>microgrid systems</b>, <b>scientific instrumentation</b>, and <b>research-based development</b>.
+          </p>
+
+          <div class="cta-stack">
+            <a class="btn btn-primary" href="#projects">View My Projects</a>
+            <div class="mini-actions">
+              <a class="btn btn-small" href="https://www.linkedin.com/in/andrigilangapkara" target="_blank">LinkedIn</a>
+              <a class="btn btn-small" href="assets/resume/andri-gilang-apkara-resume.pdf" target="_blank">Resume</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Selected Work</div>
+          <h2>Projects I want to show.</h2>
+          <div class="click-note">Click any project card to enlarge and read more detail.</div>
+        </div>
+        <p>Five selected items: two projects are marked as coming soon, while the other three already highlight practical work and achievements.</p>
+      </div>
+
+      <div class="project-rows">
+        <div class="project-row top">
+          <article class="project-card coming-card" tabindex="0" data-project="microgrid">
+            <div class="project-media">
+              <img src="assets/projects/microgrid-scada.png" alt="Microgrid mini SCADA project placeholder" />
+            </div>
+            <div class="project-body">
+              <h3>Microgrid PV Forecasting &amp; Mini SCADA</h3>
+              <p>Built a PV monitoring and forecasting workflow at BRIN by integrating device data, weather information, and dashboard visualization.</p>
+              <div class="chips">
+                <span class="chip">BRIN</span>
+                <span class="chip">SCADA</span>
+                <span class="chip">Forecasting</span>
+              </div>
+              <div class="project-footer"><span class="project-more">View detail</span></div>
+            </div>
+            <div class="coming-badge"><span>Coming Soon</span></div>
+          </article>
+
+          <article class="project-card coming-card" tabindex="0" data-project="alanine">
+            <div class="project-media">
+              <img src="assets/projects/alanine.svg" alt="Alanine dosimeter thesis project placeholder" />
+            </div>
+            <div class="project-body">
+              <h3>Bachelor’s Thesis Project: Alanine Dosimetry Using ESR</h3>
+              <p>An undergraduate thesis project related to alanine dosimetry, ESR-based analysis, and radiation measurement research.</p>
+              <div class="chips">
+                <span class="chip">Thesis</span>
+                <span class="chip">Alanine</span>
+                <span class="chip">Dosimetry</span>
+              </div>
+              <div class="project-footer"><span class="project-more">View detail</span></div>
+            </div>
+            <div class="coming-badge"><span>Coming Soon</span></div>
+          </article>
+        </div>
+
+        <div class="project-row bottom">
+          <article class="project-card" tabindex="0" data-project="ctscan">
+            <div class="project-media">
+              <img src="assets/projects/quantum.svg" alt="IoT CT-Scan room monitoring project cover" />
+            </div>
+            <div class="project-body">
+              <h3>IoT Smart Monitoring System for CT-Scan Rooms</h3>
+              <p>Developed a real-time temperature monitoring system to support stable CT-Scan room conditions during an internship in radiology, radiotherapy, medical physics, and instrumentation.</p>
+              <div class="chips">
+                <span class="chip">IoT</span>
+                <span class="chip">Medical Physics</span>
+                <span class="chip">Sensors</span>
+              </div>
+              <div class="project-footer"><span class="project-more">View detail</span></div>
+            </div>
+          </article>
+
+          <article class="project-card" tabindex="0" data-project="earthquake">
+            <div class="project-media">
+              <img src="assets/projects/earthquake_warning_prototype_presentation.svg" alt="Earthquake detection electronics project" />
+            </div>
+            <div class="project-body">
+              <h3>Earthquake Detection System</h3>
+              <p>Designed a mechanical vibration sensor integrated with a transistor-based flip-flop alarm circuit. The prototype triggered stable visual/audio alerts and received Best Final Project recognition.</p>
+              <div class="chips">
+                <span class="chip">Electronics</span>
+                <span class="chip">BJT</span>
+                <span class="chip">Alarm</span>
+              </div>
+              <div class="project-footer"><span class="project-more">View detail</span></div>
+            </div>
+          </article>
+
+          <article class="project-card" tabindex="0" data-project="achievements">
+            <div class="project-media">
+              <img src="assets/achievements/sertif.svg" alt="National University Physics Olympiad achievement certificate" />
+            </div>
+            <div class="project-body">
+              <h3>Achievements &amp; Certifications</h3>
+              <p>Academic awards, robotics achievements, and professional certifications displayed in a clean certificate gallery.</p>
+              <div class="chips">
+                <span class="chip">Awards</span>
+                <span class="chip">Certificates</span>
+                <span class="chip">Competition</span>
+              </div>
+              <div class="project-footer"><span class="project-more">View detail</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <div class="kicker">Background</div>
+          <h2>Built around applied physics.</h2>
+        </div>
+        <p>My background combines physics, instrumentation, medical physics, IoT prototyping, laboratory assistance, and organizational involvement.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card cv-card" id="cvPreviewCard" tabindex="0">
+          <h3>Preview CV</h3>
+          <p>You can already see the resume preview here. Click this card to open a larger version and read it more clearly.</p>
+
+          <div class="cv-real-preview">
+            <div class="cv-preview-toolbar">
+              <span>Resume Preview</span>
+              <span>PDF</span>
+            </div>
+            <iframe
+              class="cv-inline-frame"
+              src="assets/resume/andri-gilang-apkara-resume.pdf#view=FitH&toolbar=0&navpanes=0"
+              title="CV Preview"
+            ></iframe>
+          </div>
+
+          <div class="cv-button">
+            <span class="btn btn-primary">Open Large CV Preview</span>
+          </div>
+        </div>
+
+        <div class="right-column">
+          <div class="about-card">
+            <h3>Experience Timeline</h3>
+            <div class="timeline">
+              <div class="time-item">
+                <div class="year">2026–Now</div>
+                <div>
+                  <strong>MBKM Intern — BRIN Microgrid Research Group</strong>
+                  <span>PV forecasting, Modbus communication, and mini SCADA monitoring.</span>
+                </div>
+              </div>
+              <div class="time-item">
+                <div class="year">2025</div>
+                <div>
+                  <strong>Intern — PT Quantum Inti Akurasi</strong>
+                  <span>Radiology, radiotherapy, medical physics, instrumentation, and CT-Scan room IoT monitoring.</span>
+                </div>
+              </div>
+              <div class="time-item">
+                <div class="year">2024–2025</div>
+                <div>
+                  <strong>Teaching &amp; Laboratory Assistant</strong>
+                  <span>Fundamental Physics I tutorials and basic physics laboratory support.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-card">
+            <h3>Organizational Experience</h3>
+            <div class="org-list">
+              <div class="org-item">
+                <div class="org-year">2024–Now</div>
+                <div>
+                  <strong>Head of Social &amp; Environment Department — HMD Fisika UI</strong>
+                  <span>Led social and environment programs, redesigned content strategies, and supported student engagement activities.</span>
+                </div>
+              </div>
+              <div class="org-item">
+                <div class="org-year">2025</div>
+                <div>
+                  <strong>Project Manager — MUNAS IHAMAFI XVIII</strong>
+                  <span>Led coordination for a national student forum, managed delegates, planning, decisions, and execution timeline.</span>
+                </div>
+              </div>
+              <div class="org-item">
+                <div class="org-year">2023–2024</div>
+                <div>
+                  <strong>Robotics Trainer &amp; Team Coach</strong>
+                  <span>Guided members in programming, prototype development, algorithm design, and competition preparation.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-panel">
+        <div>
+          <div class="kicker" style="color:#9cc8ff">Contact</div>
+          <h2>Interested in collaboration?</h2>
+          <p>I am open to internship, research, instrumentation, IoT, medical physics, and engineering-related opportunities.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=andrigilangafkara@gmail.com" target="_blank">Email Me</a>
+          <a class="btn" href="https://www.linkedin.com/in/andrigilangapkara" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> Andri Gilang Apkara. Built for GitHub Pages.</div>
+  </footer>
+
+  <div class="modal" id="projectModal" aria-hidden="true">
+    <div class="modal-box" id="modalBox" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+      <div class="modal-content">
+        <div class="modal-gallery">
+          <div class="modal-hero">
+            <img id="modalMainImg" src="" alt="Project image" />
+            <div class="modal-soon-overlay"><span>Coming Soon</span></div>
+
+            <div class="carousel-controls" id="carouselControls">
+              <button class="carousel-btn" id="carouselPrev" aria-label="Previous image">‹</button>
+              <div class="carousel-indicator" id="carouselIndicator">1 / 2</div>
+              <button class="carousel-btn" id="carouselNext" aria-label="Next image">›</button>
+            </div>
+          </div>
+
+          <div class="thumb-grid" id="thumbGrid">
+            <div class="thumb"><img id="modalThumb1" src="" alt="Project supporting image 1" /></div>
+            <div class="thumb"><img id="modalThumb2" src="" alt="Project supporting image 2" /></div>
+          </div>
+        </div>
+
+        <div class="modal-info">
+          <div class="project-kicker" id="modalKicker"></div>
+          <h3 id="modalTitle"></h3>
+          <div class="chips" id="modalChips"></div>
+          <p id="modalDesc"></p>
+
+          <div class="achievement-gallery" id="achievementGallery"></div>
+
+          <div class="soon-message" id="soonMessage">
+            <strong>This project is coming soon.</strong>
+            The content and visuals are still being prepared. It will be published here after the final material is ready.
+          </div>
+
+          <div class="detail-block">
+            <h4>Key Contributions</h4>
+            <ul id="modalContrib"></ul>
+          </div>
+
+          <div class="detail-block">
+            <h4>Tools / Skills</h4>
+            <ul id="modalTools"></ul>
+          </div>
+
+          <div class="detail-block">
+            <h4>Result / Impact</h4>
+            <ul id="modalResult"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="cvModal" aria-hidden="true">
+    <div class="cv-modal-box" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
+      <div class="cv-modal-head">
+        <strong id="cvModalTitle">CV Preview</strong>
+        <button class="modal-close" id="cvModalClose" aria-label="Close">✕</button>
+      </div>
+      <iframe class="cv-frame" src="assets/resume/andri-gilang-apkara-resume.pdf#view=FitH"></iframe>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const projects = {
+      microgrid: {
+        kicker: "BRIN • Microgrid • SCADA",
+        title: "Microgrid PV Forecasting & Mini SCADA",
+        desc: "This project focused on building a practical monitoring and forecasting workflow for a microgrid research environment.",
+        chips: ["BRIN", "Microgrid", "SCADA", "Forecasting"],
+        image: "assets/projects/microgrid-scada.svg",
+        comingSoon: true,
+        contributions: [
+          "Integrated data acquisition and device monitoring for microgrid research.",
+          "Prepared dashboard concepts for real-time PV monitoring.",
+          "Combined forecasting ideas with practical mini SCADA implementation."
+        ],
+        tools: [
+          "Python, Flask, MQTT, Modbus",
+          "Data visualization and dashboard design",
+          "Microgrid and PV system monitoring"
+        ],
+        result: [
+          "Prepared as a featured portfolio project.",
+          "Will be expanded with real screenshots and project visuals.",
+          "Currently marked as coming soon."
+        ]
+      },
+
+      alanine: {
+        kicker: "Thesis • Dosimetry • ESR",
+        title: "Bachelor’s Thesis Project: Alanine Dosimetry Using ESR",
+        desc: "An undergraduate thesis project related to alanine dosimetry, ESR-based dose response analysis, and research development in radiation measurement.",
+        chips: ["Thesis", "Alanine", "Dosimetry", "Research"],
+        image: "assets/projects/alanine.svg",
+        comingSoon: true,
+        contributions: [
+          "Focused on alanine dosimeter characterization and response analysis.",
+          "Explored research-based measurement concepts for thesis development.",
+          "Prepared as a scientific project to be featured later."
+        ],
+        tools: [
+          "Research documentation",
+          "Scientific analysis",
+          "Dosimetry and measurement concepts"
+        ],
+        result: [
+          "Reserved as a dedicated thesis portfolio section.",
+          "Will be updated when thesis visuals and documentation are ready.",
+          "Currently marked as coming soon."
+        ]
+      },
+
+      ctscan: {
+        kicker: "Medical Physics • IoT",
+        title: "IoT Smart Monitoring System for CT-Scan Rooms",
+        desc: "This internship project was designed to monitor CT-Scan room conditions in real time. Use the left and right buttons to switch between two project images.",
+        chips: ["IoT", "Medical Physics", "Sensors", "Monitoring"],
+        images: [
+          "assets/projects/ct-scan-iot.svg",
+          "assets/projects/ct-scan-iot2.svg"
+        ],
+        verticalMode: true,
+        contributions: [
+          "Built an IoT-based monitoring concept for room temperature tracking.",
+          "Linked the project directly with practical needs in a CT-Scan environment.",
+          "Prepared and presented the project as an internship output."
+        ],
+        tools: [
+          "IoT sensors and monitoring concepts",
+          "Medical instrumentation environment understanding",
+          "Technical presentation and problem-solving"
+        ],
+        result: [
+          "Showed how a simple monitoring system can support sensitive medical spaces.",
+          "Strengthened practical experience in medical physics and instrumentation.",
+          "Now presented with two images using left-right navigation."
+        ]
+      },
+
+      earthquake: {
+        kicker: "Electronics Prototype",
+        title: "Earthquake Detection System",
+        desc: "This electronics project used a mechanical vibration sensor and a transistor-based flip-flop circuit to trigger stable alerts when vibration was detected.",
+        chips: ["Electronics", "BJT", "Alarm", "Prototype"],
+        image: "assets/projects/earthquake_warning_prototype_presentation.svg",
+        thumb1: "assets/projects/earthquake_warning_prototype_presentation2.svg",
+        thumb2: "assets/projects/earthquake_warning_prototype_presentation3.svg",
+        contributions: [
+          "Designed the alarm circuit with a transistor flip-flop mechanism.",
+          "Integrated a mechanical sensor to detect disturbance or vibration.",
+          "Tested the system for stable visual and audio alert activation."
+        ],
+        tools: [
+          "Basic electronics and component selection",
+          "Circuit prototyping and troubleshooting",
+          "Hands-on testing and final project documentation"
+        ],
+        result: [
+          "Received Best Final Project recognition.",
+          "Demonstrated practical implementation skills in electronics.",
+          "Useful as a portfolio project for hardware and instrumentation interest."
+        ]
+      },
+
+      achievements: {
+        kicker: "Awards • Certificates • Competition",
+        title: "Achievements & Certifications",
+        desc: "Academic awards, robotics achievements, and professional certifications.",
+        chips: ["Awards", "Olympiad", "Robotics", "Certificates"],
+        image: "assets/achievements/nupho.jpg",
+        achievementsMode: true,
+        galleryItems: [
+          {
+            image: "assets/achievements/nupho.jpg",
+            title: "National University Physics Olympiad - UNM (NuPhO) (2019)",
+            desc: "Reached the Semifinalist stage in the NuPhO organized by Universitas Negeri Malang, competing against university-level participants as a high school representative."
+          },
+          {
+            image: "assets/achievements/ksn.jpg",
+            title: "National Science Olympiad - Puspresnas (KSN) Physics (2020)",
+            desc: "Represented the school at the City or Regency level of the National Science Olympiad (KSN), participating in advanced rounds of the national physics competition."
+          },
+          {
+            image: "assets/achievements/ksm.jpg",
+            title: "Madrasah Science Competition - Kemenag RI (KSM) Physics (2020)",
+            desc: "Won 2nd Place at the Provincial Level Madrasah Science Competition (KSM) DKI Jakarta, representing the school in the regional physics competition."
+          },
+          {
+            image: "assets/achievements/kron.jpg",
+            title: "Nusantara Robot Contest – Robot Creative Category (2019)",
+            desc: "Won the Bronze Prize in the Robot Creative Category at the Nusantara Robot Contest (UIN Jakarta & IYRA), competing at the national level."
+          },
+          {
+            image: "assets/achievements/JRC.jpg",
+            title: "Jakarta Robotic Competition - DKI Jakarta Deputy Governor’s Cup (2021)",
+            desc: "Achieved Second Place in the Maze Solving Senior Category at the Jakarta Robotic Competition, held by Dunia Robot Indonesia and supported by the DKI Jakarta Deputy Governor’s Cup."
+          },
+          {
+            image: "assets/achievements/itsmp.jpg",
+            title: "Information Technology Academic & Certification Excellence (2019)",
+            desc: "Recognized as the Best Graduate in Information Technology and achieved the second-highest IT certification score at SMPIT Gema Nurani, demonstrating strong academic performance and solid foundational skills in computer operations and digital technology."
+          },
+          {
+            image: "assets/achievements/skilvulpy.jpg",
+            title: "Advanced Python (Gold) — Skilvul",
+            desc: "Issued March 2024 and valid until March 2026. Credential ID: _3e3vXD0THO1GE_aS1k64g.",
+            link: "https://skilvul.com/courses/python-lanjutan/student/andri26/",
+            linkLabel: "View Credential"
+          },
+          {
+            image: "assets/achievements/dicodingml.jpg",
+            title: "Belajar Machine Learning — Dicoding Indonesia",
+            desc: "Professional certificate issued by Dicoding Indonesia for the Belajar Machine Learning program.",
+            link: "https://www.dicoding.com/certificates/QLZ97GDQMP5D",
+            linkLabel: "Open Certificate"
+          }
+        ],
+        contributions: [
+          "Highlights achievements across physics olympiads, robotics competitions, and information technology excellence.",
+          "Shows formal certification progress in machine learning and advanced Python.",
+          "Designed to display certificate or award images with direct explanations below each image."
+        ],
+        tools: [
+          "Competition portfolio presentation",
+          "Certificate documentation",
+          "Academic and professional achievement showcase"
+        ],
+        result: [
+          "Creates a clear visual achievements section in the portfolio.",
+          "Allows each award or certificate image to have its own explanation.",
+          "Can be expanded easily by adding more images to the achievements folder."
+        ]
+      }
+    };
+
+    const modal = document.getElementById("projectModal");
+    const modalBox = document.getElementById("modalBox");
+    const closeBtn = document.getElementById("modalClose");
+    const thumbGrid = document.getElementById("thumbGrid");
+    const modalKicker = document.getElementById("modalKicker");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDesc = document.getElementById("modalDesc");
+    const modalMainImg = document.getElementById("modalMainImg");
+    const modalThumb1 = document.getElementById("modalThumb1");
+    const modalThumb2 = document.getElementById("modalThumb2");
+    const modalChips = document.getElementById("modalChips");
+    const modalContrib = document.getElementById("modalContrib");
+    const modalTools = document.getElementById("modalTools");
+    const modalResult = document.getElementById("modalResult");
+    const achievementGallery = document.getElementById("achievementGallery");
+
+    const carouselControls = document.getElementById("carouselControls");
+    const carouselPrev = document.getElementById("carouselPrev");
+    const carouselNext = document.getElementById("carouselNext");
+    const carouselIndicator = document.getElementById("carouselIndicator");
+
+    const cvModal = document.getElementById("cvModal");
+    const cvPreviewCard = document.getElementById("cvPreviewCard");
+    const cvModalClose = document.getElementById("cvModalClose");
+
+    let currentProjectImages = [];
+    let currentImageIndex = 0;
+
+    function fillList(el, items) {
+      el.innerHTML = "";
+      items.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        el.appendChild(li);
+      });
+    }
+
+    function fillChips(items) {
+      modalChips.innerHTML = "";
+      items.forEach(item => {
+        const span = document.createElement("span");
+        span.className = "chip";
+        span.textContent = item;
+        modalChips.appendChild(span);
+      });
+    }
+
+
+
+    function fillAchievementGallery(items) {
+      achievementGallery.innerHTML = "";
+      if (!items || !items.length) return;
+
+      const grid = document.createElement("div");
+      grid.className = "achievement-gallery-grid";
+
+      items.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "achievement-item";
+
+        const img = document.createElement("img");
+        img.src = item.image;
+        img.alt = item.title;
+
+        const body = document.createElement("div");
+        body.className = "achievement-item-body";
+
+        const title = document.createElement("h5");
+        title.textContent = item.title;
+
+        const desc = document.createElement("p");
+        desc.textContent = item.desc;
+
+        body.appendChild(title);
+        body.appendChild(desc);
+
+        if (item.link) {
+          const link = document.createElement("a");
+          link.className = "achievement-link";
+          link.href = item.link;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = item.linkLabel || "View Credential";
+          body.appendChild(link);
+        }
+
+        card.appendChild(img);
+        card.appendChild(body);
+        grid.appendChild(card);
+      });
+
+      achievementGallery.appendChild(grid);
+    }
+
+    function updateCarouselImage() {
+      if (!currentProjectImages.length) return;
+      modalMainImg.src = currentProjectImages[currentImageIndex];
+      carouselIndicator.textContent = `${currentImageIndex + 1} / ${currentProjectImages.length}`;
+    }
+
+    function openProject(key) {
+      const p = projects[key];
+      if (!p) return;
+
+      modalBox.classList.remove("vertical-mode", "coming-soon-mode", "slider-mode", "achievements-mode");
+      thumbGrid.style.display = "grid";
+      carouselControls.style.display = "none";
+      achievementGallery.innerHTML = "";
+
+      modalKicker.textContent = p.kicker;
+      modalTitle.textContent = p.title;
+      modalDesc.textContent = p.desc;
+
+      fillChips(p.chips);
+      fillList(modalContrib, p.contributions);
+      fillList(modalTools, p.tools);
+      fillList(modalResult, p.result);
+      fillAchievementGallery(p.galleryItems || []);
+
+      currentProjectImages = p.images ? [...p.images] : [p.image];
+      currentImageIndex = 0;
+      updateCarouselImage();
+      modalMainImg.alt = p.title;
+
+      if (p.verticalMode) modalBox.classList.add("vertical-mode");
+
+      if (p.achievementsMode) {
+        modalBox.classList.add("achievements-mode");
+        thumbGrid.style.display = "none";
+      } else if (p.comingSoon) {
+        modalBox.classList.add("coming-soon-mode");
+        thumbGrid.style.display = "none";
+      } else if (p.images && p.images.length > 1) {
+        modalBox.classList.add("slider-mode");
+        thumbGrid.style.display = "none";
+        carouselControls.style.display = "flex";
+      } else {
+        modalThumb1.src = p.thumb1 || p.image;
+        modalThumb2.src = p.thumb2 || p.image;
+        modalThumb1.alt = p.title + " detail image 1";
+        modalThumb2.alt = p.title + " detail image 2";
+      }
+
+      modal.classList.add("show");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeProject() {
+      modal.classList.remove("show");
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+      modalBox.classList.remove("vertical-mode", "coming-soon-mode", "slider-mode", "achievements-mode");
+      thumbGrid.style.display = "grid";
+      carouselControls.style.display = "none";
+      achievementGallery.innerHTML = "";
+      currentProjectImages = [];
+      currentImageIndex = 0;
+      achievementGallery.innerHTML = "";
+    }
+
+    function openCvModal() {
+      cvModal.classList.add("show");
+      cvModal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeCvModal() {
+      cvModal.classList.remove("show");
+      cvModal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll(".project-card").forEach(card => {
+      card.addEventListener("click", () => openProject(card.dataset.project));
+      card.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openProject(card.dataset.project);
+        }
+      });
+    });
+
+    carouselPrev.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (!currentProjectImages.length) return;
+      currentImageIndex = (currentImageIndex - 1 + currentProjectImages.length) % currentProjectImages.length;
+      updateCarouselImage();
+    });
+
+    carouselNext.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (!currentProjectImages.length) return;
+      currentImageIndex = (currentImageIndex + 1) % currentProjectImages.length;
+      updateCarouselImage();
+    });
+
+    cvPreviewCard.addEventListener("click", openCvModal);
+    cvPreviewCard.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        openCvModal();
+      }
+    });
+
+    closeBtn.addEventListener("click", closeProject);
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) closeProject();
+    });
+
+    cvModalClose.addEventListener("click", closeCvModal);
+    cvModal.addEventListener("click", (e) => {
+      if (e.target === cvModal) closeCvModal();
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("show")) closeProject();
+      if (e.key === "Escape" && cvModal.classList.contains("show")) closeCvModal();
+      if (e.key === "ArrowLeft" && modal.classList.contains("show") && modalBox.classList.contains("slider-mode")) carouselPrev.click();
+      if (e.key === "ArrowRight" && modal.classList.contains("show") && modalBox.classList.contains("slider-mode")) carouselNext.click();
+    });
+  </script>
+</body>
+</html>
