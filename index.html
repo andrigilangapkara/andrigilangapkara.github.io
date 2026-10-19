@@ -454,6 +454,44 @@
       border: 1px solid rgba(11, 92, 173, 0.1);
     }
 
+
+    /* Microgrid project: finished work and documented gallery */
+    .microgrid-completed {
+      position:absolute;top:14px;right:14px;z-index:1;
+      padding:8px 12px;border-radius:999px;background:#163866;
+      color:white;font-size:.72rem;font-weight:800;letter-spacing:.04em;
+      box-shadow:0 8px 22px rgba(22,56,102,.16);
+    }
+    .project-media{position:relative}
+    .microgrid-gallery-caption {
+      display:none; margin:0; border:1px solid var(--line);
+      border-radius:15px; padding:11px 13px; color:var(--muted);
+      background:#f7f9fc; font-size:.83rem; line-height:1.5;
+    }
+    .microgrid-gallery-thumbs{
+      display:none;gap:9px;overflow-x:auto;padding:3px 0 6px;
+      scrollbar-width:thin;
+    }
+    .microgrid-gallery-thumbs button{
+      flex:0 0 86px;height:67px;padding:3px;border-radius:12px;
+      border:2px solid transparent; background:#f0f4fa;cursor:pointer;
+    }
+    .microgrid-gallery-thumbs button.active{border-color:var(--blue-2);}
+    .microgrid-gallery-thumbs img {
+      width:100%;height:100%;object-fit:cover;border-radius:8px;
+    }
+    .modal-box.microgrid-mode .modal-hero{height:340px;min-height:0;}
+    .modal-box.microgrid-mode .modal-hero img{height:100%;min-height:0;object-fit:contain;background:#f2f5fa;}
+    .modal-box.microgrid-mode .microgrid-gallery-caption{display:block}
+    .modal-box.microgrid-mode .microgrid-gallery-thumbs{display:flex}
+    .microgrid-video{display:none;margin-top:6px}
+    .microgrid-video video{width:100%;max-height:300px;border-radius:16px;background:#101522}
+    .microgrid-video small{display:block;color:var(--muted);font-size:.78rem;margin-top:6px}
+    @media(max-width:760px){
+      .modal-box.microgrid-mode .modal-hero{height:260px}
+      .microgrid-gallery-thumbs button{flex-basis:74px;height:60px}
+    }
+
     .coming-card .project-media,
     .coming-card .project-body {
       filter: blur(1.8px);
@@ -1285,18 +1323,18 @@
           <h2>Projects I want to show.</h2>
           <div class="click-note">Click any project card to enlarge and read more detail.</div>
         </div>
-        <p>Five selected items: two projects are marked as coming soon, while the other three already highlight practical work and achievements.</p>
+        <p>Five featured items: Microgrid is completed with laboratory documentation; the thesis project is coming soon. Explore the other completed projects and achievements below.</p>
       </div>
 
       <div class="project-rows">
         <div class="project-row top">
-          <article class="project-card coming-card" tabindex="0" data-project="microgrid">
+          <article class="project-card" tabindex="0" data-project="microgrid">
             <div class="project-media">
-              <img src="assets/projects/microgrid-scada.svg" alt="Microgrid mini SCADA project placeholder" />
+              <img src="assets/projects/microgrid/01-dashboard-monitoring.webp" onerror="this.onerror=null;this.src='assets/projects/microgrid-scada.svg'" alt="BRIN Microgrid SCADA monitoring dashboard" /><span class="microgrid-completed">Project Completed</span>
             </div>
             <div class="project-body">
               <h3>Microgrid PV Forecasting &amp; Mini SCADA</h3>
-              <p>Built a PV monitoring and forecasting workflow at BRIN by integrating device data, weather information, and dashboard visualization.</p>
+              <p>Completed BRIN microgrid research involving a mini SCADA monitoring dashboard, PV forecasting, Modbus/PLC instrumentation, dummy-load trials, battery BMS communication, and embedded computing.</p>
               <div class="chips">
                 <span class="chip">BRIN</span>
                 <span class="chip">SCADA</span>
@@ -1304,8 +1342,7 @@
               </div>
               <div class="project-footer"><span class="project-more">View detail</span></div>
             </div>
-            <div class="coming-badge"><span>Coming Soon</span></div>
-          </article>
+            </article>
 
           <article class="project-card coming-card" tabindex="0" data-project="alanine">
             <div class="project-media">
@@ -1505,6 +1542,9 @@
             </div>
           </div>
 
+          <p id="microgridCaption" class="microgrid-gallery-caption"></p>
+          <div id="microgridThumbs" class="microgrid-gallery-thumbs" aria-label="Microgrid gallery thumbnails"></div>
+          <div id="microgridVideo" class="microgrid-video"></div>
           <div class="thumb-grid" id="thumbGrid">
             <div class="thumb"><img id="modalThumb1" src="" alt="Project supporting image 1" /></div>
             <div class="thumb"><img id="modalThumb2" src="" alt="Project supporting image 2" /></div>
@@ -1558,26 +1598,46 @@
 
     const projects = {
       microgrid: {
-        kicker: "BRIN • Microgrid • SCADA",
+        kicker: "BRIN • Completed Research Project",
         title: "Microgrid PV Forecasting & Mini SCADA",
-        desc: "This project focused on building a practical monitoring and forecasting workflow for a microgrid research environment.",
-        chips: ["BRIN", "Microgrid", "SCADA", "Forecasting"],
+        desc: "Completed microgrid research and development activities at BRIN, focusing on PV monitoring and forecasting, real-time data acquisition, instrument communication, and the implementation of a mini SCADA monitoring dashboard. The documentation gallery shows the dashboard, PLC control hardware, dummy-load trials, battery BMS communication testing, Jetson Orin Nano, and a PV–BESS workshop.",
+        chips: ["Completed", "BRIN", "Mini SCADA", "PV Monitoring", "Modbus", "Instrumentation"],
         image: "assets/projects/microgrid-scada.svg",
-        comingSoon: true,
+        images: [
+          "assets/projects/microgrid/01-dashboard-monitoring.webp",
+          "assets/projects/microgrid/02-smart-microgrid-plc.webp",
+          "assets/projects/microgrid/03-dummy-load-trials.webp",
+          "assets/projects/microgrid/04-rs232-bms.webp",
+          "assets/projects/microgrid/05-jetson-orin-nano.webp",
+          "assets/projects/microgrid/06-pv-bess-workshop.webp"
+        ],
+        imageCaptions: [
+          "Mini SCADA dashboard — interface implementation and real-time microgrid data visualization",
+          "Smart Microgrid PLC — control panel and electrical instrumentation",
+          "Dummy-load trials — laboratory hardware testing and measurement setup",
+          "RS232 / Battery BMS — communication testing for battery data acquisition",
+          "Jetson Orin Nano — embedded computing and research software environment",
+          "PV–BESS Workshop — workshop documentation and technical learning"
+        ],
+        video: "assets/projects/microgrid/07-microgrid-research.mp4",
+        videoPoster: "assets/projects/microgrid/07-video-poster.jpg",
+        projectGallery: true,
         contributions: [
-          "Integrated data acquisition and device monitoring for microgrid research.",
-          "Prepared dashboard concepts for real-time PV monitoring.",
-          "Combined forecasting ideas with practical mini SCADA implementation."
+          "Developed and tested a web-based mini SCADA dashboard for monitoring microgrid parameters.",
+          "Worked on PV monitoring and forecasting workflows and integration of weather-related information.",
+          "Explored device data acquisition through Modbus and RS232 communication, including battery BMS data collection.",
+          "Conducted laboratory trials with a dummy load, PLC-based microgrid control equipment, and embedded computing."
         ],
         tools: [
-          "Python, Flask, MQTT, Modbus",
-          "Data visualization and dashboard design",
-          "Microgrid and PV system monitoring"
+          "Python, Flask, data dashboards and real-time visualization",
+          "Modbus RTU/TCP-IP, RS232, battery BMS data acquisition",
+          "PLC systems, PV–BESS microgrid instrumentation and testing",
+          "Jetson Orin Nano and microgrid research hardware"
         ],
         result: [
-          "Prepared as a featured portfolio project.",
-          "Will be expanded with real screenshots and project visuals.",
-          "Currently marked as coming soon."
+          "Completed the project activities and documented the research process.",
+          "Developed practical experience connecting software dashboards with laboratory-scale microgrid equipment.",
+          "Prepared a project gallery covering hardware work, software, communications trials, and technical workshop participation."
         ]
       },
 
@@ -1744,6 +1804,9 @@
     const modalResult = document.getElementById("modalResult");
     const achievementGallery = document.getElementById("achievementGallery");
 
+    const microgridCaption = document.getElementById("microgridCaption");
+    const microgridThumbs = document.getElementById("microgridThumbs");
+    const microgridVideo = document.getElementById("microgridVideo");
     const carouselControls = document.getElementById("carouselControls");
     const carouselPrev = document.getElementById("carouselPrev");
     const carouselNext = document.getElementById("carouselNext");
@@ -1754,6 +1817,7 @@
     const cvModalClose = document.getElementById("cvModalClose");
 
     let currentProjectImages = [];
+    let currentImageCaptions = [];
     let currentImageIndex = 0;
 
     function fillList(el, items) {
@@ -1824,18 +1888,29 @@
 
     function updateCarouselImage() {
       if (!currentProjectImages.length) return;
+      modalMainImg.onerror = () => {
+        modalMainImg.onerror = null;
+        modalMainImg.src = "assets/projects/microgrid-scada.svg";
+      };
       modalMainImg.src = currentProjectImages[currentImageIndex];
       carouselIndicator.textContent = `${currentImageIndex + 1} / ${currentProjectImages.length}`;
+      microgridCaption.textContent = currentImageCaptions[currentImageIndex] || "";
+      microgridThumbs.querySelectorAll("button").forEach((button, index) => {
+        button.classList.toggle("active", index === currentImageIndex);
+        button.setAttribute("aria-current", index === currentImageIndex ? "true" : "false");
+      });
     }
 
     function openProject(key) {
       const p = projects[key];
       if (!p) return;
 
-      modalBox.classList.remove("vertical-mode", "coming-soon-mode", "slider-mode", "achievements-mode");
+      modalBox.classList.remove("vertical-mode", "coming-soon-mode", "slider-mode", "achievements-mode", "microgrid-mode");
       thumbGrid.style.display = "grid";
       carouselControls.style.display = "none";
       achievementGallery.innerHTML = "";
+      microgridThumbs.replaceChildren();
+      microgridVideo.replaceChildren();
 
       modalKicker.textContent = p.kicker;
       modalTitle.textContent = p.title;
@@ -1848,11 +1923,44 @@
       fillAchievementGallery(p.galleryItems || []);
 
       currentProjectImages = p.images ? [...p.images] : [p.image];
+      currentImageCaptions = p.imageCaptions || [];
       currentImageIndex = 0;
       updateCarouselImage();
       modalMainImg.alt = p.title;
 
       if (p.verticalMode) modalBox.classList.add("vertical-mode");
+
+      if (p.projectGallery) {
+        modalBox.classList.add("microgrid-mode");
+        p.images.forEach((src, index) => {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.setAttribute("aria-label", `Show documentation image ${index + 1}`);
+          const image = document.createElement("img");
+          image.src = src;
+          image.alt = p.imageCaptions[index];
+          image.onerror = () => { image.onerror = null; image.src = "assets/projects/microgrid-scada.svg"; };
+          button.append(image);
+          button.addEventListener("click", () => { currentImageIndex = index; updateCarouselImage(); });
+          microgridThumbs.append(button);
+        });
+        updateCarouselImage();
+        if (p.video) {
+          const video = document.createElement("video");
+          video.controls = true;
+          video.preload = "metadata";
+          video.poster = p.videoPoster || "";
+          const source = document.createElement("source");
+          source.src = p.video;
+          source.type = "video/mp4";
+          video.append(source);
+          video.onerror = () => {microgridVideo.style.display = "none";};
+          const info = document.createElement("small");
+          info.textContent = "BRIN Microgrid research internship — short video documentation";
+          microgridVideo.append(video,info);
+          microgridVideo.style.display = "block";
+        }
+      }
 
       if (p.achievementsMode) {
         modalBox.classList.add("achievements-mode");
@@ -1880,7 +1988,10 @@
       modal.classList.remove("show");
       modal.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
-      modalBox.classList.remove("vertical-mode", "coming-soon-mode", "slider-mode", "achievements-mode");
+      modalBox.classList.remove("vertical-mode", "coming-soon-mode", "slider-mode", "achievements-mode", "microgrid-mode");
+      microgridVideo.querySelector("video")?.pause();
+      microgridVideo.replaceChildren();
+      microgridVideo.style.display = "none";
       thumbGrid.style.display = "grid";
       carouselControls.style.display = "none";
       achievementGallery.innerHTML = "";
