@@ -1244,6 +1244,43 @@
 
     .cv-modal-box { height: 92vh; }
     }
+
+    /* Quantum internship: grouped documentation gallery */
+    @media (min-width: 761px) { .project-row.bottom { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+    .modal-box.quantum-mode { width: min(1160px, 100%); }
+    .modal-box.quantum-mode .modal-content { display: block; }
+    .modal-box.quantum-mode .modal-gallery { display: none; }
+    .modal-box.quantum-mode .modal-info { padding-top: 2px; }
+    .modal-box.quantum-mode .detail-block { margin-top: 14px; }
+    .quantum-gallery { display:none; margin-top: 24px; gap:18px; }
+    .modal-box.quantum-mode .quantum-gallery { display:grid; }
+    .quantum-event {
+      padding:22px; border:1px solid var(--line); border-radius:24px;
+      background: linear-gradient(135deg,#fff,#f7faff);
+    }
+    .quantum-event-header { display:flex; gap:16px; justify-content:space-between; align-items:start; flex-wrap:wrap; }
+    .quantum-event h4 { margin:0; font-size:1.18rem; font-weight:800; letter-spacing:-.035em; line-height:1.28; }
+    .quantum-event-badge { flex:0 0 auto; padding:5px 10px; background:var(--soft-blue); border-radius:999px; font-size:.7rem; color:var(--blue); font-weight:800; }
+    .quantum-event p { margin:9px 0 16px; color:var(--muted); font-size:.88rem; }
+    .quantum-photos {
+      display:grid; grid-auto-flow:column; grid-auto-columns:minmax(190px, 29%);
+      overflow-x:auto; gap:14px; padding:3px 2px 12px; scroll-snap-type:x mandatory;
+    }
+    .quantum-photo {
+      display:block; scroll-snap-align:start; background:#fff; overflow:hidden;
+      border-radius:16px; border:1px solid var(--line); text-decoration:none;
+      box-shadow:0 8px 20px rgba(18,40,70,.045);
+    }
+    .quantum-photo img { width:100%; height:240px; object-fit:contain; background:#f2f4f8; }
+    .quantum-photo figcaption { padding:11px 12px; min-height:65px; color:var(--muted);font-size:.78rem;line-height:1.45; }
+    .quantum-gallery-hint {font-size:.75rem;font-weight:700;color:var(--blue-2);text-align:right;margin-top:6px;}
+    @media(max-width:760px){
+      .quantum-event {padding:15px;border-radius:18px;}
+      .quantum-photos {grid-auto-columns: minmax(205px, 75%);}
+      .quantum-photo img {height:235px;}
+      .modal-box.quantum-mode .modal-info h3 {font-size:1.9rem;}
+    }
+
   </style>
 </head>
 <body>
@@ -1392,6 +1429,23 @@
                 <span class="chip">Alarm</span>
               </div>
               <div class="project-footer"><span class="project-more">View detail</span></div>
+            </div>
+          </article>
+
+
+          <article class="project-card" tabindex="0" data-project="quantum">
+            <div class="project-media">
+              <img src="assets/projects/quantum/01-mrccc-xray-qa.jpg" onerror="this.onerror=null;this.src='assets/projects/quantum.svg'" alt="Medical instrumentation internship — PT Quantum Inti Akurasi" />
+            </div>
+            <div class="project-body">
+              <h3>Medical Instrumentation &amp; Calibration Internship</h3>
+              <p>Hands-on technical exposure at PT Quantum Inti Akurasi: MRCCC radiodiagnostic systems, X-ray QA phantoms and dosimeters, CT imaging, electrical safety, biomedical simulators, and clinical engineering.</p>
+              <div class="chips">
+                <span class="chip">Medical Physics</span>
+                <span class="chip">Radiodiagnostics</span>
+                <span class="chip">Calibration &amp; QA</span>
+              </div>
+              <div class="project-footer"><span class="project-more">Explore documentation</span></div>
             </div>
           </article>
 
@@ -1558,6 +1612,7 @@
           <p id="modalDesc"></p>
 
           <div class="achievement-gallery" id="achievementGallery"></div>
+          <div id="quantumGallery" class="quantum-gallery" aria-label="Grouped internship documentation"></div>
 
           <div class="soon-message" id="soonMessage">
             <strong>This project is coming soon.</strong>
@@ -1717,6 +1772,147 @@
         ]
       },
 
+      quantum: {
+              "kicker": "PT Quantum Inti Akurasi • Internship",
+              "title": "Medical Instrumentation & Calibration Internship",
+              "desc": "Clinical engineering documentation covering diagnostic imaging equipment, X-ray quality assurance, biomedical electrical safety testing, simulator training, and instrumentation troubleshooting. Photos are organized by event to provide context for each activity.",
+              "chips": [
+                      "Medical Physics",
+                      "Radiodiagnostics",
+                      "Calibration & QA",
+                      "Clinical Engineering"
+              ],
+              "image": "assets/projects/quantum.svg",
+              "quantumMode": true,
+              "eventGroups": [
+                      {
+                              "title": "MRCCC — Radiodiagnostic Systems & X-ray Quality Assurance",
+                              "site": "MRCCC",
+                              "summary": "Explored diagnostic radiology workflows, including conventional radiography, mammography, bone mineral density assessment, and C-arm fluoroscopy. The photos document X-ray equipment demonstrations, hands-on positioning of phantoms and dosimeters, and quality-assurance discussions. Mammography and bone densitometry are learning topics from the visit; not every modality was photographed.",
+                              "photos": [
+                                      {
+                                              "src": "assets/projects/quantum/01-mrccc-xray-qa.jpg",
+                                              "caption": "Getting familiar with radiography equipment, dosimeters, and QA setup"
+                                      },
+                                      {
+                                              "src": "assets/projects/quantum/02-mrccc-radiography-team.jpg",
+                                              "caption": "Group documentation during the MRCCC radiodiagnostic session"
+                                      },
+                                      {
+                                              "src": "assets/projects/quantum/03-mrccc-xray-workflow.jpg",
+                                              "caption": "Observing general X-ray system controls and measurement workflow"
+                                      },
+                                      {
+                                              "src": "assets/projects/quantum/04-mrccc-qa-console.jpg",
+                                              "caption": "Reviewing imaging and QA data at the workstation"
+                                      },
+                                      {
+                                              "src": "assets/projects/quantum/05-mrccc-phantom-testing.jpg",
+                                              "caption": "Hands-on phantom and dosimeter positioning"
+                                      },
+                                      {
+                                              "src": "assets/projects/quantum/06-mrccc-radiography-instruments.jpg",
+                                              "caption": "Diagnostic X-ray systems and instrument familiarization"
+                                      },
+                                      {
+                                              "src": "assets/projects/quantum/07-mrccc-qa-phantoms.jpg",
+                                              "caption": "Examples of test phantoms and imaging quality-control equipment"
+                                      },
+                                      {
+                                              "src": "assets/projects/quantum/08-mrccc-c-arm.jpg",
+                                              "caption": "Observation of C-arm fluoroscopy imaging equipment"
+                                      }
+                              ]
+                      },
+                      {
+                              "title": "CT-Scan — Phantom Homogeneity & Data Collection",
+                              "site": "CT • Fatmawati",
+                              "summary": "Assisted with CT-scanner-related learning activities, including phantom homogeneity evaluation and supervised data collection in a clinical imaging environment.",
+                              "photos": [
+                                      {
+                                              "src": "assets/projects/quantum/09-ct-phantom-homogeneity.jpg",
+                                              "caption": "Discussing CT phantom homogeneity and image-quality evaluation"
+                                      },
+                                      {
+                                              "src": "assets/projects/quantum/10-ct-fatmawati-data.jpg",
+                                              "caption": "Collecting CT-related data at Fatmawati"
+                                      }
+                              ]
+                      },
+                      {
+                              "title": "ECG Calibration & Electrical Safety Analyzer",
+                              "site": "Biomedical Safety",
+                              "summary": "Practiced biomedical electrical-safety concepts using an ESA620 analyzer, focusing on device safety checks and leakage-current testing in the context of ECG instrumentation.",
+                              "photos": [
+                                      {
+                                              "src": "assets/projects/quantum/11-ecg-esa620-electrical-safety.jpg",
+                                              "caption": "ESA620 electrical safety analyzer and testing worksheets"
+                                      }
+                              ]
+                      },
+                      {
+                              "title": "Infusion Device Analyzer — Circuit Troubleshooting",
+                              "site": "Instrumentation",
+                              "summary": "Studied short-circuit identification from electrical schematics and assisted in supervised examination of a non-functioning infusion device analyzer, connecting circuit analysis with physical troubleshooting.",
+                              "photos": [
+                                      {
+                                              "src": "assets/projects/quantum/12-infusion-analyzer-troubleshooting.jpg",
+                                              "caption": "Circuit schematic inspection and board-level troubleshooting session"
+                                      }
+                              ]
+                      },
+                      {
+                              "title": "Vital Signs Simulator — ProSim 8 Technical Training",
+                              "site": "Mayapada Lebak Bulus",
+                              "summary": "Participated in technical familiarization with the ProSim 8 vital signs simulator and its role in biomedical device testing, verification, and application support.",
+                              "photos": [
+                                      {
+                                              "src": "assets/projects/quantum/13-prosim8-training.jpg",
+                                              "caption": "ProSim 8 technical training and instrument familiarization"
+                                      }
+                              ]
+                      },
+                      {
+                              "title": "Ventilator Calibration Analyzer Exposure",
+                              "site": "ICU • RSUD Cipayung",
+                              "summary": "Observed and supported learning activities involving a ventilator analyzer in an intensive-care environment, including basic setup, measurement concepts, and equipment checks.",
+                              "photos": [
+                                      {
+                                              "src": "assets/projects/quantum/14-ventilator-analyzer-training.jpg",
+                                              "caption": "Ventilator analyzer demonstration in an ICU setting"
+                                      }
+                              ]
+                      },
+                      {
+                              "title": "Authorized Fluke Biomedical Laboratory",
+                              "site": "PT Quantum Inti Akurasi",
+                              "summary": "Visited a biomedical instrumentation laboratory to see the test equipment, analyzers, and laboratory environment used in calibration and quality-assurance workflows.",
+                              "photos": [
+                                      {
+                                              "src": "assets/projects/quantum/15-fluke-laboratory.jpg",
+                                              "caption": "Authorized Fluke Biomedical laboratory facilities and equipment"
+                                      }
+                              ]
+                      }
+              ],
+              "contributions": [
+                      "Participated in supervised familiarization with X-ray imaging systems and QA procedures using phantoms and dosimeters at MRCCC.",
+                      "Learned about diagnostic imaging modalities including mammography, bone mineral density measurement, CT scanning, and C-arm fluoroscopy.",
+                      "Explored biomedical electrical-safety testing, ECG-related analyzer workflows, and infusion device analyzer troubleshooting.",
+                      "Joined technical sessions on the ProSim 8 vital signs simulator and ventilator analyzer equipment."
+              ],
+              "tools": [
+                      "Diagnostic X-ray QA phantoms and dosimeters; CT image quality concepts",
+                      "ESA620 electrical safety analyzer and biomedical device testing",
+                      "ProSim 8 simulator, ventilator analyzer, medical instrumentation troubleshooting",
+                      "Documentation, teamwork, and supervised clinical engineering workflow"
+              ],
+              "result": [
+                      "Organized a visual record of internship learning across hospital and laboratory environments.",
+                      "Developed practical exposure to medical equipment testing, radiodiagnostic QA, and calibration concepts."
+              ]
+      },
+
       achievements: {
         kicker: "Awards • Certificates • Competition",
         title: "Achievements & Certifications",
@@ -1802,6 +1998,7 @@
     const modalContrib = document.getElementById("modalContrib");
     const modalTools = document.getElementById("modalTools");
     const modalResult = document.getElementById("modalResult");
+    const quantumGallery = document.getElementById("quantumGallery");
     const achievementGallery = document.getElementById("achievementGallery");
 
     const microgridCaption = document.getElementById("microgridCaption");
@@ -1886,6 +2083,61 @@
       achievementGallery.appendChild(grid);
     }
 
+
+    function fillQuantumGallery(groups) {
+      quantumGallery.replaceChildren();
+      (groups || []).forEach(group => {
+        const section = document.createElement("section");
+        section.className = "quantum-event";
+        const header = document.createElement("div");
+        header.className = "quantum-event-header";
+        const title = document.createElement("h4");
+        title.textContent = group.title;
+        const badge = document.createElement("span");
+        badge.className = "quantum-event-badge";
+        badge.textContent = group.site;
+        header.append(title,badge);
+        const summary = document.createElement("p");
+        summary.textContent = group.summary;
+        section.append(header,summary);
+        const strip = document.createElement("div");
+        strip.className = "quantum-photos";
+        group.photos.forEach(photo => {
+          const link = document.createElement("a");
+          link.className = "quantum-photo";
+          link.href = photo.src;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.title = "Open full-sized documentation photo";
+          const figure = document.createElement("figure");
+          figure.style.margin = "0";
+          const image = document.createElement("img");
+          image.src = photo.src;
+          image.alt = photo.caption;
+          image.loading = "lazy";
+          image.onerror = () => {
+            image.onerror = null;
+            image.src = "assets/projects/quantum.svg";
+            link.removeAttribute("href");
+            link.title = "Photo pending upload";
+          };
+          const caption = document.createElement("figcaption");
+          caption.textContent = photo.caption;
+          figure.append(image,caption);
+          link.append(figure);
+          strip.append(link);
+        });
+        section.append(strip);
+        if (group.photos.length > 2) {
+          const hint = document.createElement("div");
+          hint.className = "quantum-gallery-hint";
+          hint.textContent = "Scroll sideways to see more photos →";
+          section.append(hint);
+        }
+        quantumGallery.append(section);
+      });
+    }
+
     function updateCarouselImage() {
       if (!currentProjectImages.length) return;
       modalMainImg.onerror = () => {
@@ -1905,10 +2157,11 @@
       const p = projects[key];
       if (!p) return;
 
-      modalBox.classList.remove("vertical-mode", "coming-soon-mode", "slider-mode", "achievements-mode", "microgrid-mode");
+      modalBox.classList.remove("vertical-mode", "coming-soon-mode", "slider-mode", "achievements-mode", "microgrid-mode", "quantum-mode");
       thumbGrid.style.display = "grid";
       carouselControls.style.display = "none";
       achievementGallery.innerHTML = "";
+      quantumGallery.replaceChildren();
       microgridThumbs.replaceChildren();
       microgridVideo.replaceChildren();
 
@@ -1921,6 +2174,7 @@
       fillList(modalTools, p.tools);
       fillList(modalResult, p.result);
       fillAchievementGallery(p.galleryItems || []);
+      fillQuantumGallery(p.eventGroups || []);
 
       currentProjectImages = p.images ? [...p.images] : [p.image];
       currentImageCaptions = p.imageCaptions || [];
@@ -1962,7 +2216,11 @@
         }
       }
 
-      if (p.achievementsMode) {
+      if (p.quantumMode) {
+        modalBox.classList.add("quantum-mode");
+        thumbGrid.style.display = "none";
+        carouselControls.style.display = "none";
+      } else if (p.achievementsMode) {
         modalBox.classList.add("achievements-mode");
         thumbGrid.style.display = "none";
       } else if (p.comingSoon) {
@@ -1988,10 +2246,11 @@
       modal.classList.remove("show");
       modal.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
-      modalBox.classList.remove("vertical-mode", "coming-soon-mode", "slider-mode", "achievements-mode", "microgrid-mode");
+      modalBox.classList.remove("vertical-mode", "coming-soon-mode", "slider-mode", "achievements-mode", "microgrid-mode", "quantum-mode");
       microgridVideo.querySelector("video")?.pause();
       microgridVideo.replaceChildren();
       microgridVideo.style.display = "none";
+      quantumGallery.replaceChildren();
       thumbGrid.style.display = "grid";
       carouselControls.style.display = "none";
       achievementGallery.innerHTML = "";
