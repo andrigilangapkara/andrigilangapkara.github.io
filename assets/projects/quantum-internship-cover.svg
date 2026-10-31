@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-label="Biomedical instrumentation and radiodiagnostic internship illustration">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#eff5fc"/><stop offset=".65" stop-color="#d8e7f7"/><stop offset="1" stop-color="#bcd3eb"/></linearGradient>
+  <linearGradient id="screen" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#244e7c"/><stop offset="1" stop-color="#133455"/></linearGradient>
+  <pattern id="grid" width="33" height="33" patternUnits="userSpaceOnUse"><path d="M 33 0 L 0 0 0 33" fill="none" stroke="#7c9abb" stroke-opacity=".17" stroke-width="1"/></pattern>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="25" flood-color="#31577e" flood-opacity=".15"/></filter>
+</defs>
+<rect width="1200" height="760" fill="url(#bg)"/><rect width="1200" height="760" fill="url(#grid)"/>
+<circle cx="945" cy="10" r="330" fill="#fff" fill-opacity=".27"/><circle cx="150" cy="725" r="315" fill="#fff" fill-opacity=".24"/>
+<rect x="77" y="77" width="1046" height="607" rx="40" fill="#fff" fill-opacity=".66" stroke="#fff" stroke-opacity=".87" stroke-width="2" filter="url(#shadow)"/>
+<g font-family="Inter,Arial,sans-serif">
+ <text x="128" y="140" font-size="22" font-weight="700" fill="#356696" letter-spacing="5">CLINICAL ENGINEERING</text>
+ <text x="128" y="188" font-size="37" font-weight="800" fill="#14375d">Biomedical Instrumentation</text>
+ <text x="128" y="226" font-size="28" font-weight="500" fill="#366489">&amp; Calibration Fieldwork</text>
+</g>
+<!-- CT system -->
+<g stroke="#153e6c" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" fill="none" transform="translate(132 300)">
+  <rect x="5" y="0" width="334" height="290" rx="44" fill="#f8fbff" stroke="#a7c5e2" stroke-width="5"/>
+  <circle cx="170" cy="140" r="111" fill="#e5f1fc" stroke="#244d78" stroke-width="14"/>
+  <circle cx="170" cy="140" r="66" fill="#c5dced" stroke="#84abce" stroke-width="9"/>
+  <path d="M-22 167h120M242 167h150M346 167h135" stroke="#7f9fb9" stroke-width="16"/>
+  <rect x="350" y="156" width="140" height="21" rx="10" fill="#7e9fba" stroke="none"/>
+  <path d="M112 293v26M232 293v26" stroke="#7f9fb9" stroke-width="15"/>
+  <circle cx="260" cy="48" r="11" fill="#417bb0" stroke="none"/>
+</g>
+<!-- monitor + waveform -->
+<g transform="translate(672 307)">
+  <rect x="0" y="0" width="357" height="218" rx="22" fill="url(#screen)" stroke="#2b5d8d" stroke-width="5"/>
+  <rect x="24" y="24" width="307" height="167" rx="9" fill="#163957" stroke="#7fa9ce" stroke-opacity=".38"/>
+  <path d="M36 107h65l19-42 31 97 25-51h34l20-28 23 24h63" stroke="#a9ddf2" stroke-width="8" stroke-linejoin="round" stroke-linecap="round" fill="none"/>
+  <path d="M36 52h280M36 153h280" stroke="#bde0f5" stroke-width="2" stroke-opacity=".12"/>
+  <path d="M140 219v32h73v-32M96 254h166" stroke="#376895" stroke-width="13" stroke-linecap="round"/>
+</g>
+<!-- scientific cards -->
+<g transform="translate(710 545)" fill="#e9f5ff" stroke="#376b9a" stroke-width="3">
+  <rect width="115" height="82" rx="18"/><path d="M24 48h16l9-22 15 42 13-24h18" fill="none" stroke-width="5" stroke-linecap="round"/>
+  <rect x="143" width="115" height="82" rx="18"/><path d="M169 19h63M169 31h63M175 48h52M188 48v17M213 48v17" stroke-width="4" stroke-linecap="round"/>
+  <rect x="286" width="115" height="82" rx="18"/><circle cx="343" cy="41" r="25" stroke-width="6"/><circle cx="343" cy="41" r="11" fill="#b2d3ed" stroke="none"/>
+</g>
+<text x="132" y="653" font-size="19" font-family="Arial,sans-serif" font-weight="700" letter-spacing="2" fill="#436d93">PT QUANTUM INTI AKURASI</text>
+</svg>
