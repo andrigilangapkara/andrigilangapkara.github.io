@@ -1281,6 +1281,177 @@
       .modal-box.quantum-mode .modal-info h3 {font-size:1.9rem;}
     }
 
+
+    /* Refined editorial design: Quantum internship featured card */
+    .project-row.bottom { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .project-card.quantum-featured {
+      grid-column:1 / -1; display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);
+      overflow:hidden; border-radius:30px; border-color:#dbe5f1;
+      background:linear-gradient(135deg,#ffffff 42%,#f8fbff 100%);
+      box-shadow:0 18px 48px rgba(23,49,83,.09);
+    }
+    .quantum-featured:hover { border-color:#98b9de;box-shadow:0 24px 60px rgba(23,49,83,.15) }
+    .quantum-feature-media {min-height:360px;aspect-ratio:auto;position:relative;isolation:isolate;}
+    .quantum-feature-media::after{
+      content:""; position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(180deg,rgba(10,31,58,.04) 46%,rgba(12,38,70,.30) 100%);
+      z-index:1;
+    }
+    .quantum-feature-media img {height:100%;width:100%;object-fit:cover;object-position:center;}
+    .quantum-feature-tag {
+      position:absolute;top:22px;left:22px;z-index:2;background:rgba(255,255,255,.94);
+      border:1px solid rgba(255,255,255,.94);backdrop-filter:blur(12px);
+      padding:9px 13px;border-radius:99px;color:#153c6e;
+      font-size:.69rem;font-weight:900;letter-spacing:.11em;
+      box-shadow:0 8px 22px rgba(18,34,56,.1);
+    }
+    .quantum-feature-corner{
+      position:absolute;bottom:24px;right:24px;z-index:2;
+      width:43px;height:43px;display:grid;place-items:center;
+      border-radius:50%;font-size:1.3rem;background:rgba(255,255,255,.94);color:#164979;
+    }
+    .quantum-feature-body {padding:38px 38px 34px;gap:18px;min-height:0;}
+    .quantum-feature-eyebrow {font-size:.69rem;letter-spacing:.12em;font-weight:900;color:#386b9b}
+    .quantum-feature-eyebrow span{padding:0 5px;color:#93abc6}
+    .quantum-feature-body h3{font-size:clamp(1.5rem,2.8vw,2.2rem);letter-spacing:-.055em;line-height:1.14}
+    .quantum-feature-body p{font-size:.94rem;line-height:1.7}
+    .quantum-feature-metrics{display:flex;gap:14px;flex-wrap:wrap;padding:14px 0;border-block:1px solid #e6edf5}
+    .quantum-feature-metrics > span{display:grid;gap:0;min-width:92px;flex:1}
+    .quantum-feature-metrics strong{font-size:1.1rem;letter-spacing:-.04em;color:#12335e}
+    .quantum-feature-metrics small{font-size:.7rem;color:#6b778a;font-weight:600}
+    .quantum-feature-action{display:inline-flex;gap:10px;align-items:center;font-size:.83rem;
+      font-weight:900;color:#164477;letter-spacing:.01em}
+    .quantum-feature-action span{font-size:1.2rem;transition:transform .2s}
+    .quantum-featured:hover .quantum-feature-action span{transform:translate(3px,-3px)}
+
+    /* Quantum detail modal */
+    .modal-box.quantum-mode{width:min(1190px,100%);border-radius:26px;background:#fbfdff}
+    .modal-box.quantum-mode .modal-content{display:block;padding:0 34px 36px}
+    .modal-box.quantum-mode .modal-gallery{display:none}
+    .modal-box.quantum-mode .modal-info{padding:0}
+    .modal-box.quantum-mode .modal-info h3{max-width:790px;font-size:clamp(2rem,4vw,3.5rem);line-height:1.08;letter-spacing:-.065em}
+    .modal-box.quantum-mode .modal-info > p{max-width:860px;line-height:1.7;color:#697588}
+    .modal-box.quantum-mode .modal-close{top:13px;right:13px;background:#fff;box-shadow:0 5px 18px rgba(20,50,80,.10)}
+    .modal-box.quantum-mode .quantum-gallery{display:block}
+    .quantum-intro-panel{
+      background:linear-gradient(130deg,#112e53,#1d507d);
+      color:#fff; padding:25px 28px; border-radius:24px;margin:20px 0 26px;
+      position:relative;overflow:hidden;
+    }
+    .quantum-intro-panel::after{content:"";position:absolute;right:-40px;top:-60px;width:260px;height:260px;
+      border:1px solid rgba(255,255,255,.18);border-radius:50%;box-shadow:0 0 0 32px rgba(255,255,255,.035),0 0 0 75px rgba(255,255,255,.028)}
+    .quantum-intro-kicker{font-size:.69rem;font-weight:900;letter-spacing:.17em;color:#b8dafc;text-transform:uppercase}
+    .quantum-intro-row{display:flex;gap:20px;justify-content:space-between;flex-wrap:wrap;align-items:end;position:relative;z-index:1}
+    .quantum-intro-panel h4{margin:8px 0 0;font-size:clamp(1.2rem,2.6vw,1.85rem);line-height:1.15;letter-spacing:-.04em;font-weight:800;max-width:570px;color:white}
+    .quantum-intro-stats{display:flex;gap:24px}
+    .quantum-intro-stats span{display:grid;gap:0}
+    .quantum-intro-stats strong{font-size:1.8rem;font-weight:850;letter-spacing:-.06em;color:white}
+    .quantum-intro-stats small{font-size:.72rem;font-weight:600;color:#d0e1f6}
+    .quantum-toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:20px}
+    .quantum-filter-label{font-size:.72rem;color:#4f6886;font-weight:900;letter-spacing:.1em;text-transform:uppercase;margin-right:6px}
+    .quantum-filter{border:1px solid #dce7f4;background:#fff;color:#43617f;white-space:nowrap;
+      padding:9px 14px;border-radius:99px;font-size:.78rem;font-weight:800;cursor:pointer;transition:background .2s,color .2s}
+    .quantum-filter:hover,.quantum-filter:focus-visible{border-color:#2d6da2;color:#164b7b}
+    .quantum-filter[aria-pressed="true"]{background:#143c68;color:white;border-color:#143c68}
+    .quantum-gallery .quantum-event {
+      margin-bottom:18px;padding:25px 25px 26px;
+      border:1px solid #e1e9f4;border-radius:24px;background:#fff;
+      box-shadow:0 11px 28px rgba(20,40,70,.045);
+    }
+    .quantum-event[hidden]{display:none!important}
+    .quantum-event-heading{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+    .quantum-event-index{display:grid;place-items:center;flex:0 0 42px;height:42px;border-radius:13px;
+      background:#eaf3ff;color:#184878;font-weight:900;font-size:.85rem}
+    .quantum-gallery .quantum-event h4{margin:0;font-size:clamp(1rem,2vw,1.35rem);letter-spacing:-.035em;line-height:1.3}
+    .quantum-gallery .quantum-event-badge{background:#f1f5fa;font-size:.68rem;color:#3f6d98;border:1px solid #e0ebf5}
+    .quantum-gallery .quantum-event p{max-width:960px;margin:10px 0 18px;color:#67768a;font-size:.89rem;line-height:1.68}
+    .quantum-gallery .quantum-photos{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+      grid-auto-flow:row;gap:13px;overflow:visible;padding:0;scroll-snap-type:none}
+    .quantum-gallery .quantum-photos[data-count="1"]{grid-template-columns:minmax(0,370px)}
+    .quantum-gallery .quantum-photos[data-count="2"]{grid-template-columns:repeat(2,minmax(0,370px))}
+    .quantum-gallery .quantum-photo{
+      display:flex;flex-direction:column;text-align:left;padding:0;min-width:0;cursor:zoom-in;
+      border:1px solid #e0e7f0;border-radius:16px;background:#fff;
+      font:inherit; color:inherit;box-shadow:none;overflow:hidden;
+      transition:transform .22s,box-shadow .22s,border-color .22s;
+    }
+    .quantum-gallery .quantum-photo:hover:not(:disabled){transform:translateY(-3px);box-shadow:0 13px 25px rgba(19,50,82,.1);border-color:#8eb8dd}
+    .quantum-gallery .quantum-photo:focus-visible{outline:3px solid #70b2f4;outline-offset:3px}
+    .quantum-gallery .quantum-photo:disabled{cursor:default}
+    .quantum-photo-visual{
+      position:relative;display:grid;place-items:center;width:100%;aspect-ratio:1.2;
+      overflow:hidden;background:linear-gradient(135deg,#eaf2fc,#f5f8fe)
+    }
+    .quantum-photo-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;z-index:1}
+    .quantum-photo-visual::before{content:"";width:66px;height:66px;position:absolute;right:-18px;bottom:-18px;border:1px solid #bfd3e6;border-radius:50%}
+    .quantum-photo-visual::after{content:"↗";position:absolute;right:10px;top:10px;z-index:2;
+      display:grid;place-items:center;width:27px;height:27px;background:#fff;border-radius:50%;
+      color:#255a8e;font-size:.9rem;opacity:0;transition:opacity .2s}
+    .quantum-photo:hover .quantum-photo-visual::after{opacity:1}
+    .quantum-photo[disabled] .quantum-photo-visual::after{display:none}
+    .quantum-gallery .quantum-photo figcaption{padding:13px 13px 16px;min-height:74px;font-size:.78rem;
+      line-height:1.5;color:#52677d;font-weight:600}
+    .quantum-photo.is-missing{display:none}
+    .quantum-photo-empty{grid-column:1/-1;display:none;align-items:center;gap:12px;padding:28px;
+      border:1px dashed #d4e2ef;border-radius:14px;color:#55718f;background:#f7faff;font-size:.84rem}
+    .quantum-photo-empty.is-visible{display:flex}
+    .quantum-photo-empty-icon{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;
+      background:#e7f0fb;font-size:1.15rem;color:#376a9e}
+    .modal-box.quantum-mode .detail-block{display:inline-block;vertical-align:top;width:calc(33.333% - 11px);
+      margin:20px 8px 0 0;padding:18px;border-radius:16px;border-color:#e1eaf4;background:#fff}
+    .modal-box.quantum-mode .detail-block:last-child{margin-right:0}
+    .modal-box.quantum-mode .detail-block li{font-size:.82rem;line-height:1.6}
+    .quantum-lightbox{display:none;position:fixed;inset:0;z-index:200;background:rgba(7,17,31,.94);
+      padding:20px;align-items:center;justify-content:center; flex-direction:column;gap:14px}
+    .quantum-lightbox.is-open{display:flex}
+    .quantum-lightbox img{max-width:min(92vw,1100px);max-height:76vh;object-fit:contain;border-radius:10px}
+    .quantum-lightbox-footer{display:flex;gap:15px;align-items:center;justify-content:center;flex-wrap:wrap;
+      color:#e5ecf6;max-width:900px;font-size:.85rem;text-align:center}
+    .quantum-lightbox-count{font-weight:900;color:#a4cff7;white-space:nowrap}
+    .quantum-lightbox-controls{display:flex;gap:10px;position:absolute;bottom:22px;left:50%;transform:translateX(-50%)}
+    .quantum-lightbox button{width:45px;height:45px;display:grid;place-items:center;border:1px solid #7492b2;
+      border-radius:50%;background:#193755;color:white;cursor:pointer;font-size:1.25rem}
+    .quantum-lightbox button:hover{background:#28557d}
+    .quantum-lightbox-close{position:absolute;top:20px;right:20px}
+    .modal-box.quantum-mode .quantum-gallery-hint{display:none}
+    @media(max-width:1100px){
+      .quantum-gallery .quantum-photos{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .modal-box.quantum-mode .detail-block{width:calc(50% - 10px)}
+    }
+    @media(max-width:900px){
+      .project-row.bottom{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .project-card.quantum-featured{grid-template-columns:1fr 1fr}
+      .quantum-feature-body{padding:28px 25px}
+      .quantum-feature-media{min-height:330px}
+    }
+    @media(max-width:760px){
+      .project-row.bottom{grid-template-columns:1fr}
+      .project-card.quantum-featured{display:flex;flex-direction:column}
+      .quantum-feature-media{min-height:220px;max-height:260px}
+      .quantum-feature-body{padding:25px 22px}
+      .quantum-feature-body h3{font-size:1.6rem}
+      .quantum-feature-metrics{gap:10px}
+      .modal-box.quantum-mode{border-radius:18px}
+      .modal-box.quantum-mode .modal-content{padding:0 17px 24px}
+      .modal-box.quantum-mode .modal-info h3{font-size:clamp(1.9rem,7vw,2.5rem)}
+      .quantum-intro-panel{padding:20px;border-radius:17px}
+      .quantum-intro-stats{gap:20px}
+      .quantum-intro-stats strong{font-size:1.4rem}
+      .quantum-toolbar{gap:7px}
+      .quantum-filter{padding:8px 11px;font-size:.72rem}
+      .quantum-gallery .quantum-event{padding:17px;border-radius:17px}
+      .quantum-gallery .quantum-photos{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+      .quantum-gallery .quantum-photo figcaption{font-size:.71rem;min-height:72px;padding:10px}
+      .quantum-gallery .quantum-photos[data-count="1"]{grid-template-columns:minmax(0,1fr)}
+      .quantum-gallery .quantum-photos[data-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .modal-box.quantum-mode .detail-block{display:block;width:100%;margin:12px 0 0}
+      .quantum-lightbox{padding:12px}
+      .quantum-lightbox-footer{padding-bottom:65px}
+    }
+    @media (prefers-reduced-motion:reduce){
+      .quantum-featured,.quantum-photo,.quantum-filter{transition:none!important}
+    }
+
   </style>
 </head>
 <body>
@@ -1433,22 +1604,6 @@
           </article>
 
 
-          <article class="project-card" tabindex="0" data-project="quantum">
-            <div class="project-media">
-              <img src="assets/projects/quantum/01-mrccc-xray-qa.jpg" onerror="this.onerror=null;this.src='assets/projects/quantum.svg'" alt="Medical instrumentation internship — PT Quantum Inti Akurasi" />
-            </div>
-            <div class="project-body">
-              <h3>Medical Instrumentation &amp; Calibration Internship</h3>
-              <p>Hands-on technical exposure at PT Quantum Inti Akurasi: MRCCC radiodiagnostic systems, X-ray QA phantoms and dosimeters, CT imaging, electrical safety, biomedical simulators, and clinical engineering.</p>
-              <div class="chips">
-                <span class="chip">Medical Physics</span>
-                <span class="chip">Radiodiagnostics</span>
-                <span class="chip">Calibration &amp; QA</span>
-              </div>
-              <div class="project-footer"><span class="project-more">Explore documentation</span></div>
-            </div>
-          </article>
-
           <article class="project-card" tabindex="0" data-project="achievements">
             <div class="project-media">
               <img src="assets/achievements/sertif.svg" alt="National University Physics Olympiad achievement certificate" />
@@ -1462,6 +1617,28 @@
                 <span class="chip">Competition</span>
               </div>
               <div class="project-footer"><span class="project-more">View detail</span></div>
+            </div>
+          </article>
+
+          <article class="project-card quantum-featured" tabindex="0" data-project="quantum" role="button" aria-label="Open medical instrumentation and calibration internship documentation">
+            <div class="project-media quantum-feature-media">
+              <img src="assets/projects/quantum/01-mrccc-xray-qa.jpg" onerror="this.onerror=null;this.src='assets/projects/quantum-internship-cover.svg'" alt="Radiodiagnostic and biomedical equipment internship at PT Quantum Inti Akurasi" loading="lazy" />
+              <span class="quantum-feature-tag">FIELDWORK JOURNAL</span>
+              <span class="quantum-feature-corner" aria-hidden="true">↗</span>
+            </div>
+            <div class="project-body quantum-feature-body">
+              <div class="quantum-feature-eyebrow">PT QUANTUM INTI AKURASI <span>•</span> MEDICAL INSTRUMENTATION</div>
+              <h3>Biomedical Instrumentation &amp; Calibration Internship</h3>
+              <p>Hands-on learning across radiodiagnostic equipment, X-ray quality assurance, CT imaging, medical electrical safety, device troubleshooting, and clinical engineering.</p>
+              <div class="quantum-feature-metrics" aria-label="Internship documentation overview">
+                <span><strong>07</strong><small>Field sessions</small></span>
+                <span><strong>15</strong><small>Documentary photos</small></span>
+                <span><strong>MRCCC</strong><small>Clinical exposure</small></span>
+              </div>
+              <div class="chips">
+                <span class="chip">Radiodiagnostics</span><span class="chip">Medical Physics</span><span class="chip">Calibration &amp; QA</span>
+              </div>
+              <div class="project-footer"><span class="quantum-feature-action">Explore internship documentation <span aria-hidden="true">↗</span></span></div>
             </div>
           </article>
         </div>
@@ -1635,6 +1812,16 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="quantum-lightbox" id="quantumLightbox" role="dialog" aria-modal="true" aria-label="Internship photo viewer" aria-hidden="true">
+    <button type="button" class="quantum-lightbox-close" id="quantumLightboxClose" aria-label="Close photo">✕</button>
+    <img id="quantumLightboxImage" alt="" />
+    <div class="quantum-lightbox-footer"><span class="quantum-lightbox-count" id="quantumLightboxCount"></span><span id="quantumLightboxCaption"></span></div>
+    <div class="quantum-lightbox-controls">
+      <button type="button" id="quantumLightboxPrev" aria-label="Previous documentation photo">‹</button>
+      <button type="button" id="quantumLightboxNext" aria-label="Next documentation photo">›</button>
     </div>
   </div>
 
@@ -2084,59 +2271,140 @@
     }
 
 
+    const quantumLightbox = document.getElementById("quantumLightbox");
+    const quantumLightboxImage = document.getElementById("quantumLightboxImage");
+    const quantumLightboxCount = document.getElementById("quantumLightboxCount");
+    const quantumLightboxCaption = document.getElementById("quantumLightboxCaption");
+    const quantumLightboxClose = document.getElementById("quantumLightboxClose");
+    let quantumPhotoItems = [];
+    let quantumLightboxIndex = 0;
+    let quantumPreviousFocus = null;
+
+    function showQuantumPhoto(index) {
+      if (!quantumPhotoItems.length) return;
+      quantumLightboxIndex = (index + quantumPhotoItems.length) % quantumPhotoItems.length;
+      const item = quantumPhotoItems[quantumLightboxIndex];
+      quantumLightboxImage.src = item.src;
+      quantumLightboxImage.alt = item.caption;
+      quantumLightboxCount.textContent = (quantumLightboxIndex + 1) + " / " + quantumPhotoItems.length;
+      quantumLightboxCaption.textContent = item.caption;
+    }
+
+    function openQuantumLightbox(index) {
+      quantumPreviousFocus = document.activeElement;
+      showQuantumPhoto(index);
+      quantumLightbox.classList.add("is-open");
+      quantumLightbox.setAttribute("aria-hidden", "false");
+      quantumLightboxClose.focus();
+    }
+
+    function closeQuantumLightbox() {
+      quantumLightbox.classList.remove("is-open");
+      quantumLightbox.setAttribute("aria-hidden", "true");
+      quantumLightboxImage.removeAttribute("src");
+      if (quantumPreviousFocus && quantumPreviousFocus.isConnected) quantumPreviousFocus.focus();
+    }
+
     function fillQuantumGallery(groups) {
       quantumGallery.replaceChildren();
-      (groups || []).forEach(group => {
-        const section = document.createElement("section");
-        section.className = "quantum-event";
-        const header = document.createElement("div");
-        header.className = "quantum-event-header";
-        const title = document.createElement("h4");
-        title.textContent = group.title;
-        const badge = document.createElement("span");
-        badge.className = "quantum-event-badge";
-        badge.textContent = group.site;
-        header.append(title,badge);
-        const summary = document.createElement("p");
-        summary.textContent = group.summary;
-        section.append(header,summary);
-        const strip = document.createElement("div");
-        strip.className = "quantum-photos";
-        group.photos.forEach(photo => {
-          const link = document.createElement("a");
-          link.className = "quantum-photo";
-          link.href = photo.src;
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-          link.title = "Open full-sized documentation photo";
-          const figure = document.createElement("figure");
-          figure.style.margin = "0";
-          const image = document.createElement("img");
-          image.src = photo.src;
-          image.alt = photo.caption;
-          image.loading = "lazy";
-          image.onerror = () => {
-            image.onerror = null;
-            image.src = "assets/projects/quantum.svg";
-            link.removeAttribute("href");
-            link.title = "Photo pending upload";
-          };
-          const caption = document.createElement("figcaption");
-          caption.textContent = photo.caption;
-          figure.append(image,caption);
-          link.append(figure);
-          strip.append(link);
+      quantumPhotoItems = [];
+      if (!groups || !groups.length) return;
+
+      const intro = document.createElement("div");
+      intro.className = "quantum-intro-panel";
+      const kicker = document.createElement("div");
+      kicker.className = "quantum-intro-kicker";
+      kicker.textContent = "INTERNSHIP FIELD NOTES  /  PT QUANTUM INTI AKURASI";
+      const row = document.createElement("div");
+      row.className = "quantum-intro-row";
+      const title = document.createElement("h4");
+      title.textContent = "From clinical imaging to biomedical instrument testing.";
+      const stats = document.createElement("div");
+      stats.className = "quantum-intro-stats";
+      [{n:String(groups.length).padStart(2,"0"),label:"Field sessions"},{n:String(groups.reduce((sum,g)=>sum+g.photos.length,0)).padStart(2,"0"),label:"Documentation photos"}].forEach(stat=>{
+        const cell=document.createElement("span");const big=document.createElement("strong");
+        big.textContent=stat.n;const small=document.createElement("small");small.textContent=stat.label;
+        cell.append(big,small);stats.append(cell);
+      });
+      row.append(title,stats);intro.append(kicker,row);quantumGallery.append(intro);
+
+      const toolbar = document.createElement("div");
+      toolbar.className = "quantum-toolbar";
+      toolbar.setAttribute("role","group");
+      toolbar.setAttribute("aria-label","Filter internship activities");
+      const label=document.createElement("span");label.className="quantum-filter-label";label.textContent="Explore";
+      toolbar.append(label);
+      const entries=[];
+      const buttonRefs=[];
+      const filterNames = ["All","MRCCC","CT Scan","Electrical Safety","Troubleshooting","ProSim 8","Ventilator","Laboratory"];
+      filterNames.forEach((name,filterIndex)=>{
+        if(filterIndex>groups.length) return;
+        const button=document.createElement("button");button.type="button";button.className="quantum-filter";
+        button.textContent=name;button.setAttribute("aria-pressed", filterIndex===0?"true":"false");
+        button.addEventListener("click",()=>{
+          entries.forEach((entry,index)=>{ entry.hidden=filterIndex!==0&&index!==filterIndex-1; });
+          buttonRefs.forEach((btn)=>btn.setAttribute("aria-pressed",btn===button?"true":"false"));
         });
-        section.append(strip);
-        if (group.photos.length > 2) {
-          const hint = document.createElement("div");
-          hint.className = "quantum-gallery-hint";
-          hint.textContent = "Scroll sideways to see more photos →";
-          section.append(hint);
-        }
-        quantumGallery.append(section);
+        buttonRefs.push(button);toolbar.append(button);
+      });
+      quantumGallery.append(toolbar);
+
+      groups.forEach((group,groupIndex)=>{
+        const section=document.createElement("section");
+        section.className="quantum-event";
+        section.setAttribute("aria-label",group.title);
+        const header=document.createElement("div");header.className="quantum-event-header";
+        const heading=document.createElement("div");heading.className="quantum-event-heading";
+        const count=document.createElement("span");count.className="quantum-event-index";
+        count.textContent=String(groupIndex+1).padStart(2,"0");
+        const h4=document.createElement("h4");h4.textContent=group.title;
+        heading.append(count,h4);
+        const site=document.createElement("span");site.className="quantum-event-badge";site.textContent=group.site;
+        header.append(heading,site);
+        const summary=document.createElement("p");summary.textContent=group.summary;
+        section.append(header,summary);
+
+        const grid=document.createElement("div");
+        grid.className="quantum-photos";
+        grid.dataset.count=String(group.photos.length);
+        const empty=document.createElement("div");
+        empty.className="quantum-photo-empty";
+        const eIcon=document.createElement("span");eIcon.className="quantum-photo-empty-icon";
+        eIcon.textContent="▧";
+        const eText=document.createElement("span");
+        eText.textContent="Photo documentation is being prepared for this session.";
+        empty.append(eIcon,eText);
+
+        let loadedCount=0;
+        let outstanding=group.photos.length;
+        group.photos.forEach((photo)=>{
+          const imgIndex=quantumPhotoItems.length;
+          quantumPhotoItems.push(photo);
+          const button=document.createElement("button");
+          button.type="button";button.className="quantum-photo";
+          button.setAttribute("aria-label","Enlarge: "+photo.caption);
+          const figure=document.createElement("figure");figure.style.margin="0";
+          const wrap=document.createElement("div");wrap.className="quantum-photo-visual";
+          const image=document.createElement("img");image.src=photo.src;image.alt=photo.caption;image.loading="lazy";
+          image.addEventListener("load",()=>{loadedCount++; outstanding--;empty.classList.remove("is-visible");});
+          image.addEventListener("error",()=>{
+            outstanding--;
+            button.classList.add("is-missing");button.disabled=true;
+            if(outstanding<=0 && loadedCount===0) empty.classList.add("is-visible");
+          });
+          const caption=document.createElement("figcaption");caption.textContent=photo.caption;
+          wrap.append(image);figure.append(wrap,caption);button.append(figure);
+          button.addEventListener("click",()=>openQuantumLightbox(imgIndex));
+          grid.append(button);
+        });
+        grid.append(empty);section.append(grid);quantumGallery.append(section);entries.push(section);
       });
     }
+
+    quantumLightboxClose.addEventListener("click",closeQuantumLightbox);
+    document.getElementById("quantumLightboxPrev").addEventListener("click",()=>showQuantumPhoto(quantumLightboxIndex-1));
+    document.getElementById("quantumLightboxNext").addEventListener("click",()=>showQuantumPhoto(quantumLightboxIndex+1));
+    quantumLightbox.addEventListener("click",e=>{if(e.target===quantumLightbox)closeQuantumLightbox();});
 
     function updateCarouselImage() {
       if (!currentProjectImages.length) return;
@@ -2243,6 +2511,7 @@
     }
 
     function closeProject() {
+      if (quantumLightbox.classList.contains("is-open")) closeQuantumLightbox();
       modal.classList.remove("show");
       modal.setAttribute("aria-hidden", "true");
       document.body.style.overflow = "";
@@ -2314,6 +2583,11 @@
     });
 
     window.addEventListener("keydown", (e) => {
+      if (quantumLightbox.classList.contains("is-open")) {
+        if (e.key === "Escape") { e.preventDefault(); closeQuantumLightbox(); return; }
+        if (e.key === "ArrowLeft") { e.preventDefault(); showQuantumPhoto(quantumLightboxIndex-1); return; }
+        if (e.key === "ArrowRight") { e.preventDefault(); showQuantumPhoto(quantumLightboxIndex+1); return; }
+      }
       if (e.key === "Escape" && modal.classList.contains("show")) closeProject();
       if (e.key === "Escape" && cvModal.classList.contains("show")) closeCvModal();
       if (e.key === "ArrowLeft" && modal.classList.contains("show") && modalBox.classList.contains("slider-mode")) carouselPrev.click();
