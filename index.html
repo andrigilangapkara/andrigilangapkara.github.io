@@ -1283,7 +1283,7 @@
 
 
     /* Refined editorial design: Quantum internship featured card */
-    .project-row.bottom { grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .project-row.bottom { grid-template-columns:repeat(2,minmax(0,1fr)); }
     .project-card.quantum-featured {
       grid-column:1 / -1; display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,1fr);
       overflow:hidden; border-radius:30px; border-color:#dbe5f1;
@@ -1452,6 +1452,43 @@
       .quantum-featured,.quantum-photo,.quantum-filter{transition:none!important}
     }
 
+
+    /* Embedded 9:16 IoT CT-Scan project within the Quantum internship case study */
+    .modal-box.quantum-mode .quantum-iot-event {
+      background:linear-gradient(135deg,#edf5ff 0%,#fff 73%);
+      border-color:#cbdff3;
+    }
+    .quantum-iot-carousel {
+      display:grid;grid-template-columns:minmax(190px,300px) minmax(0,1fr);
+      gap:30px;align-items:center;max-width:800px;margin:20px auto 2px;
+    }
+    .quantum-iot-image {
+      width:100%;aspect-ratio:9 / 16;border:1px solid #c9d9e9;
+      border-radius:20px;background:#dcebf8;overflow:hidden;
+      padding:0;cursor:zoom-in;box-shadow:0 18px 38px rgba(19,45,78,.11);
+    }
+    .quantum-iot-image img {width:100%;height:100%;object-fit:contain;display:block;}
+    .quantum-iot-side {display:grid;justify-items:start;gap:11px;}
+    .quantum-iot-side strong{color:#143d6b;font-weight:900;font-size:1.15rem;letter-spacing:-.035em;}
+    .quantum-iot-side p {margin:0 0 4px!important;color:#526d88!important;line-height:1.6;}
+    .quantum-iot-controls {display:flex;align-items:center;gap:15px;padding:8px;
+      background:#fff;border:1px solid #dbe6f2;border-radius:999px;
+      box-shadow:0 9px 25px rgba(18,57,98,.07);}
+    .quantum-iot-controls button {
+      width:43px;height:43px;border:0;border-radius:50%;
+      background:#173d6b;color:white;font-size:1.6rem;cursor:pointer;
+      display:grid;place-items:center;line-height:1;
+    }
+    .quantum-iot-controls button:hover,.quantum-iot-controls button:focus-visible{background:#2865a1;}
+    .quantum-iot-controls span{font-size:.79rem;min-width:42px;text-align:center;
+      font-weight:850;color:#254f7c;font-variant-numeric:tabular-nums;}
+    .quantum-iot-caption {font-size:.83rem!important;font-weight:700;color:#54708b!important;}
+    @media(max-width:760px) {
+      .quantum-iot-carousel{grid-template-columns:1fr;justify-items:center;gap:20px;}
+      .quantum-iot-image{max-width:270px;}
+      .quantum-iot-side{justify-items:center;text-align:center;gap:9px;}
+    }
+
   </style>
 </head>
 <body>
@@ -1571,19 +1608,26 @@
         </div>
 
         <div class="project-row bottom">
-          <article class="project-card" tabindex="0" data-project="ctscan">
-            <div class="project-media">
-              <img src="assets/projects/quantum.svg" alt="IoT CT-Scan room monitoring project cover" />
+
+          <article class="project-card quantum-featured" tabindex="0" data-project="quantum" role="button" aria-label="Open biomedical instrumentation, calibration and CT-Scan IoT project documentation">
+            <div class="project-media quantum-feature-media">
+              <img src="assets/projects/quantum/01-mrccc-xray-qa.jpg" onerror="this.onerror=null;this.src='assets/projects/quantum-internship-cover.svg'" alt="Radiodiagnostic and biomedical equipment internship at PT Quantum Inti Akurasi" loading="lazy" />
+              <span class="quantum-feature-tag">FIELDWORK JOURNAL</span>
+              <span class="quantum-feature-corner" aria-hidden="true">↗</span>
             </div>
-            <div class="project-body">
-              <h3>IoT Smart Monitoring System for CT-Scan Rooms</h3>
-              <p>Developed a real-time temperature monitoring system to support stable CT-Scan room conditions during an internship in radiology, radiotherapy, medical physics, and instrumentation.</p>
-              <div class="chips">
-                <span class="chip">IoT</span>
-                <span class="chip">Medical Physics</span>
-                <span class="chip">Sensors</span>
+            <div class="project-body quantum-feature-body">
+              <div class="quantum-feature-eyebrow">PT QUANTUM INTI AKURASI <span>•</span> MEDICAL INSTRUMENTATION</div>
+              <h3>Biomedical Instrumentation, Calibration &amp; IoT Internship</h3>
+              <p>Combined internship portfolio: IoT smart monitoring for CT-Scan rooms, radiodiagnostic quality assurance, biomedical calibration, electrical safety, and clinical engineering fieldwork.</p>
+              <div class="quantum-feature-metrics" aria-label="Internship documentation overview">
+                <span><strong>08</strong><small>Work areas</small></span>
+                <span><strong>15</strong><small>Field photos</small></span>
+                <span><strong>02</strong><small>IoT visuals</small></span>
               </div>
-              <div class="project-footer"><span class="project-more">View detail</span></div>
+              <div class="chips">
+                <span class="chip">IoT Monitoring</span><span class="chip">Radiodiagnostics</span><span class="chip">Calibration &amp; QA</span>
+              </div>
+              <div class="project-footer"><span class="quantum-feature-action">Explore projects &amp; documentation <span aria-hidden="true">↗</span></span></div>
             </div>
           </article>
 
@@ -1620,27 +1664,7 @@
             </div>
           </article>
 
-          <article class="project-card quantum-featured" tabindex="0" data-project="quantum" role="button" aria-label="Open medical instrumentation and calibration internship documentation">
-            <div class="project-media quantum-feature-media">
-              <img src="assets/projects/quantum/01-mrccc-xray-qa.jpg" onerror="this.onerror=null;this.src='assets/projects/quantum-internship-cover.svg'" alt="Radiodiagnostic and biomedical equipment internship at PT Quantum Inti Akurasi" loading="lazy" />
-              <span class="quantum-feature-tag">FIELDWORK JOURNAL</span>
-              <span class="quantum-feature-corner" aria-hidden="true">↗</span>
-            </div>
-            <div class="project-body quantum-feature-body">
-              <div class="quantum-feature-eyebrow">PT QUANTUM INTI AKURASI <span>•</span> MEDICAL INSTRUMENTATION</div>
-              <h3>Biomedical Instrumentation &amp; Calibration Internship</h3>
-              <p>Hands-on learning across radiodiagnostic equipment, X-ray quality assurance, CT imaging, medical electrical safety, device troubleshooting, and clinical engineering.</p>
-              <div class="quantum-feature-metrics" aria-label="Internship documentation overview">
-                <span><strong>07</strong><small>Field sessions</small></span>
-                <span><strong>15</strong><small>Documentary photos</small></span>
-                <span><strong>MRCCC</strong><small>Clinical exposure</small></span>
-              </div>
-              <div class="chips">
-                <span class="chip">Radiodiagnostics</span><span class="chip">Medical Physics</span><span class="chip">Calibration &amp; QA</span>
-              </div>
-              <div class="project-footer"><span class="quantum-feature-action">Explore internship documentation <span aria-hidden="true">↗</span></span></div>
-            </div>
-          </article>
+
         </div>
       </div>
     </div>
@@ -1907,33 +1931,6 @@
         ]
       },
 
-      ctscan: {
-        kicker: "Medical Physics • IoT",
-        title: "IoT Smart Monitoring System for CT-Scan Rooms",
-        desc: "This internship project was designed to monitor CT-Scan room conditions in real time. Use the left and right buttons to switch between two project images.",
-        chips: ["IoT", "Medical Physics", "Sensors", "Monitoring"],
-        images: [
-          "assets/projects/ct-scan-iot.svg",
-          "assets/projects/ct-scan-iot2.svg"
-        ],
-        verticalMode: true,
-        contributions: [
-          "Built an IoT-based monitoring concept for room temperature tracking.",
-          "Linked the project directly with practical needs in a CT-Scan environment.",
-          "Prepared and presented the project as an internship output."
-        ],
-        tools: [
-          "IoT sensors and monitoring concepts",
-          "Medical instrumentation environment understanding",
-          "Technical presentation and problem-solving"
-        ],
-        result: [
-          "Showed how a simple monitoring system can support sensitive medical spaces.",
-          "Strengthened practical experience in medical physics and instrumentation.",
-          "Now presented with two images using left-right navigation."
-        ]
-      },
-
       earthquake: {
         kicker: "Electronics Prototype",
         title: "Earthquake Detection System",
@@ -1961,9 +1958,10 @@
 
       quantum: {
               "kicker": "PT Quantum Inti Akurasi • Internship",
-              "title": "Medical Instrumentation & Calibration Internship",
-              "desc": "Clinical engineering documentation covering diagnostic imaging equipment, X-ray quality assurance, biomedical electrical safety testing, simulator training, and instrumentation troubleshooting. Photos are organized by event to provide context for each activity.",
+              "title": "Biomedical Instrumentation, Calibration & IoT Internship",
+              "desc": "An integrated internship portfolio at PT Quantum Inti Akurasi: a dedicated IoT Smart Monitoring System for CT-Scan Rooms project alongside clinical engineering activities in medical equipment calibration, radiodiagnostic quality assurance, electrical safety, instrument troubleshooting, and technical training. Explore the IoT project and grouped fieldwork documentation below.",
               "chips": [
+                      "IoT Monitoring",
                       "Medical Physics",
                       "Radiodiagnostics",
                       "Calibration & QA",
@@ -1972,6 +1970,22 @@
               "image": "assets/projects/quantum.svg",
               "quantumMode": true,
               "eventGroups": [
+                      {
+                              "title": "IoT Smart Monitoring System for CT-Scan Rooms",
+                              "site": "Internship Project • IoT",
+                              "kind": "carousel",
+                              "summary": "A dedicated internship project exploring real-time CT-Scan room temperature monitoring to support environmental awareness around sensitive medical equipment. The work connected sensor and IoT monitoring concepts with practical instrumentation needs; the two project visuals can be viewed using the left and right controls.",
+                              "photos": [
+                                      {
+                                              "src": "assets/projects/ct-scan-iot.svg",
+                                              "caption": "CT-Scan room smart monitoring — project visual 1"
+                                      },
+                                      {
+                                              "src": "assets/projects/ct-scan-iot2.svg",
+                                              "caption": "CT-Scan room smart monitoring — project visual 2"
+                                      }
+                              ]
+                      },
                       {
                               "title": "MRCCC — Radiodiagnostic Systems & X-ray Quality Assurance",
                               "site": "MRCCC",
@@ -2083,18 +2097,21 @@
                       }
               ],
               "contributions": [
+                      "Developed and presented an IoT-based concept for real-time temperature monitoring of CT-Scan rooms during the internship.",
                       "Participated in supervised familiarization with X-ray imaging systems and QA procedures using phantoms and dosimeters at MRCCC.",
                       "Learned about diagnostic imaging modalities including mammography, bone mineral density measurement, CT scanning, and C-arm fluoroscopy.",
                       "Explored biomedical electrical-safety testing, ECG-related analyzer workflows, and infusion device analyzer troubleshooting.",
                       "Joined technical sessions on the ProSim 8 vital signs simulator and ventilator analyzer equipment."
               ],
               "tools": [
+                      "IoT sensors, real-time environmental monitoring concepts, and medical instrumentation applications",
                       "Diagnostic X-ray QA phantoms and dosimeters; CT image quality concepts",
                       "ESA620 electrical safety analyzer and biomedical device testing",
                       "ProSim 8 simulator, ventilator analyzer, medical instrumentation troubleshooting",
                       "Documentation, teamwork, and supervised clinical engineering workflow"
               ],
               "result": [
+                      "Documented an IoT Smart Monitoring System for CT-Scan Rooms as a practical internship project.",
                       "Organized a visual record of internship learning across hospital and laboratory environments.",
                       "Developed practical exposure to medical equipment testing, radiodiagnostic QA, and calibration concepts."
               ]
@@ -2318,10 +2335,10 @@
       const row = document.createElement("div");
       row.className = "quantum-intro-row";
       const title = document.createElement("h4");
-      title.textContent = "From clinical imaging to biomedical instrument testing.";
+      title.textContent = "From CT-Scan IoT monitoring to clinical engineering and biomedical testing.";
       const stats = document.createElement("div");
       stats.className = "quantum-intro-stats";
-      [{n:String(groups.length).padStart(2,"0"),label:"Field sessions"},{n:String(groups.reduce((sum,g)=>sum+g.photos.length,0)).padStart(2,"0"),label:"Documentation photos"}].forEach(stat=>{
+      [{n:String(groups.length).padStart(2,"0"),label:"Work areas"},{n:String(groups.reduce((sum,g)=>sum+g.photos.length,0)).padStart(2,"0"),label:"Project visuals"}].forEach(stat=>{
         const cell=document.createElement("span");const big=document.createElement("strong");
         big.textContent=stat.n;const small=document.createElement("small");small.textContent=stat.label;
         cell.append(big,small);stats.append(cell);
@@ -2336,7 +2353,7 @@
       toolbar.append(label);
       const entries=[];
       const buttonRefs=[];
-      const filterNames = ["All","MRCCC","CT Scan","Electrical Safety","Troubleshooting","ProSim 8","Ventilator","Laboratory"];
+      const filterNames = ["All","IoT CT-Scan","MRCCC","CT Scan QA","Electrical Safety","Troubleshooting","ProSim 8","Ventilator","Laboratory"];
       filterNames.forEach((name,filterIndex)=>{
         if(filterIndex>groups.length) return;
         const button=document.createElement("button");button.type="button";button.className="quantum-filter";
@@ -2363,6 +2380,67 @@
         header.append(heading,site);
         const summary=document.createElement("p");summary.textContent=group.summary;
         section.append(header,summary);
+
+
+        if (group.kind === "carousel") {
+          section.classList.add("quantum-iot-event");
+          const baseIndex = quantumPhotoItems.length;
+          group.photos.forEach(photo => quantumPhotoItems.push(photo));
+          const stage = document.createElement("div");
+          stage.className = "quantum-iot-carousel";
+          const imageHolder = document.createElement("button");
+          imageHolder.type = "button";
+          imageHolder.className = "quantum-iot-image";
+          imageHolder.setAttribute("aria-label", "Enlarge CT-Scan IoT project image");
+          const image = document.createElement("img");
+          image.alt = group.photos[0].caption;
+          const nav = document.createElement("div");
+          nav.className = "quantum-iot-controls";
+          const previous = document.createElement("button");
+          previous.type = "button";
+          previous.textContent = "‹";
+          previous.setAttribute("aria-label", "Previous CT-Scan IoT image");
+          const progress = document.createElement("span");
+          progress.setAttribute("aria-live", "polite");
+          const next = document.createElement("button");
+          next.type = "button";
+          next.textContent = "›";
+          next.setAttribute("aria-label", "Next CT-Scan IoT image");
+          const caption = document.createElement("p");
+          caption.className = "quantum-iot-caption";
+          let position = 0;
+          function updateIoTImage() {
+            const photo = group.photos[position];
+            image.src = photo.src;
+            image.alt = photo.caption;
+            caption.textContent = photo.caption;
+            progress.textContent = (position + 1) + " / " + group.photos.length;
+          }
+          previous.addEventListener("click", () => {
+            position = (position - 1 + group.photos.length) % group.photos.length;
+            updateIoTImage();
+          });
+          next.addEventListener("click", () => {
+            position = (position + 1) % group.photos.length;
+            updateIoTImage();
+          });
+          imageHolder.addEventListener("click", () => openQuantumLightbox(baseIndex + position));
+          imageHolder.append(image);
+          nav.append(previous,progress,next);
+          const side = document.createElement("div");
+          side.className = "quantum-iot-side";
+          const subhead = document.createElement("strong");
+          subhead.textContent = "Two project visuals";
+          const prompt = document.createElement("p");
+          prompt.textContent = "Navigate through both 9:16 images. Click the image to enlarge it.";
+          side.append(subhead,prompt,nav,caption);
+          stage.append(imageHolder,side);
+          updateIoTImage();
+          section.append(stage);
+          quantumGallery.append(section);
+          entries.push(section);
+          return;
+        }
 
         const grid=document.createElement("div");
         grid.className="quantum-photos";
