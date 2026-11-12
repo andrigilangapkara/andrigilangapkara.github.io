@@ -2289,6 +2289,7 @@
 
 
     const quantumLightbox = document.getElementById("quantumLightbox");
+    const quantumPhotoURL = (src) => src + (src.includes("?") ? "&" : "?") + "v=18b0ff5";
     const quantumLightboxImage = document.getElementById("quantumLightboxImage");
     const quantumLightboxCount = document.getElementById("quantumLightboxCount");
     const quantumLightboxCaption = document.getElementById("quantumLightboxCaption");
@@ -2301,7 +2302,7 @@
       if (!quantumPhotoItems.length) return;
       quantumLightboxIndex = (index + quantumPhotoItems.length) % quantumPhotoItems.length;
       const item = quantumPhotoItems[quantumLightboxIndex];
-      quantumLightboxImage.src = item.src;
+      quantumLightboxImage.src = quantumPhotoURL(item.src);
       quantumLightboxImage.alt = item.caption;
       quantumLightboxCount.textContent = (quantumLightboxIndex + 1) + " / " + quantumPhotoItems.length;
       quantumLightboxCaption.textContent = item.caption;
@@ -2463,9 +2464,14 @@
           button.setAttribute("aria-label","Enlarge: "+photo.caption);
           const figure=document.createElement("figure");figure.style.margin="0";
           const wrap=document.createElement("div");wrap.className="quantum-photo-visual";
-          const image=document.createElement("img");image.src=photo.src;image.alt=photo.caption;image.loading="lazy";
+          const image=document.createElement("img");image.src=quantumPhotoURL(photo.src);image.alt=photo.caption;image.loading="eager";
           image.addEventListener("load",()=>{loadedCount++; outstanding--;empty.classList.remove("is-visible");});
           image.addEventListener("error",()=>{
+            if (!image.dataset.retried) {
+              image.dataset.retried = "1";
+              image.src = photo.src + "?v=18b0ff5-r1";
+              return;
+            }
             outstanding--;
             button.classList.add("is-missing");button.disabled=true;
             if(outstanding<=0 && loadedCount===0) empty.classList.add("is-visible");
